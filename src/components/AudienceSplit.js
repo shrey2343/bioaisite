@@ -1,14 +1,14 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import useScrollAnimation from '../hooks/useScrollAnimation';
 
 function AudienceSplit() {
   useScrollAnimation();
 
   return (
-    <section>
+    <section id="audience">
       <div className="sw">
         <div className="center fi" style={{marginBottom:'3rem'}}>
-          <div className="eyebrow">// Two Paths. One Destination.</div>
+          <div className="eyebrow">{'// Two Paths. One Destination.'}</div>
           <h2 className="h2">Built for <span className="gt">Both of You</span></h2>
           <p className="lead center">Whether you're a student building a career or a researcher needing specialist firepower — BioAI Lab has a world-class solution, built specifically for your situation.</p>
         </div>

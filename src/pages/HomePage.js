@@ -19,39 +19,21 @@ function HomePage() {
       <AnnouncementBar />
       <Navigation />
       <Hero />
-      <div className="sec-div"></div>
-      <div className="section-light">
-        <WhoAreYou />
-      </div>
-      <div className="sec-div"></div>
-      <div className="section-dark">
-        <AudienceSplit />
-      </div>
-      <div className="sec-div"></div>
-      <div id="training" className="section-light">
+      <WhoAreYou />
+      <AudienceSplit />
+      <div id="training">
         <Training />
       </div>
-      <div id="workshop" className="section-dark">
-        <Workshop />
-      </div>
-      <div className="sec-div"></div>
-      <div id="services" className="section-light">
+      <Workshop />
+      <div id="services">
         <Services />
       </div>
-      <div className="sec-div"></div>
-      <div id="about" className="section-dark">
-        <Why />
-      </div>
-      <div className="section-light">
-        <Testimonials />
-      </div>
-      <div className="sec-div"></div>
-      <div id="blog" className="section-dark">
+      <Why />
+      <Testimonials />
+      <div id="blog">
         <Global />
       </div>
-      <div className="section-light">
-        <CTA />
-      </div>
+      <CTA />
       <Footer />
     </div>
   );

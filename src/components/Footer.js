@@ -18,40 +18,40 @@ function Footer() {
         <div className="foot-col">
           <h5>Training</h5>
           <ul>
-            <li><a href="#">No-Code Bio-AI</a></li>
-            <li><a href="#">Bio-AI Lab Course</a></li>
-            <li><a href="#">AI for Lab Workflows</a></li>
-            <li><a href="#">Free Workshop</a></li>
-            <li><a href="#">Enterprise Cohorts</a></li>
+            <li><a href="/biocodemastery">No-Code Bio-AI</a></li>
+            <li><a href="/bioai-lab">Bio-AI Lab Course</a></li>
+            <li><a href="/#training">AI for Lab Workflows</a></li>
+            <li><a href="/#training">Free Workshop</a></li>
+            <li><a href="/#contact">Enterprise Cohorts</a></li>
           </ul>
         </div>
         <div className="foot-col">
           <h5>Services</h5>
           <ul>
-            <li><a href="#">Dissertation Writing</a></li>
-            <li><a href="#">Manuscript Writing</a></li>
-            <li><a href="#">Health Data Analysis</a></li>
-            <li><a href="#">Grant Proposals</a></li>
-            <li><a href="#">Policy Documents</a></li>
+            <li><a href="/#services">Dissertation Writing</a></li>
+            <li><a href="/#services">Manuscript Writing</a></li>
+            <li><a href="/#services">Health Data Analysis</a></li>
+            <li><a href="/#services">Grant Proposals</a></li>
+            <li><a href="/#services">Policy Documents</a></li>
           </ul>
         </div>
         <div className="foot-col">
           <h5>Deepiotics</h5>
           <ul>
-            <li><a href="#">About Deepiotics</a></li>
-            <li><a href="#">Our Experts</a></li>
-            <li><a href="#">Global Reach</a></li>
-            <li><a href="#">Client Outcomes</a></li>
-            <li><a href="#">Contact</a></li>
+            <li><a href="/#about">About Deepiotics</a></li>
+            <li><a href="/#about">Our Experts</a></li>
+            <li><a href="/#global">Global Reach</a></li>
+            <li><a href="/#about">Client Outcomes</a></li>
+            <li><a href="/#contact">Contact</a></li>
           </ul>
         </div>
       </div>
       <div className="foot-bottom">
         <span>© 2025 BioAI Lab · A Deepiotics Initiative. All rights reserved.</span>
         <div className="flegal">
-          <a href="#">Privacy Policy</a>
-          <a href="#">Terms</a>
-          <a href="#">Confidentiality & NDA</a>
+          <a href="/privacy">Privacy Policy</a>
+          <a href="/terms">Terms</a>
+          <a href="/confidentiality">Confidentiality & NDA</a>
         </div>
       </div>
     </footer>

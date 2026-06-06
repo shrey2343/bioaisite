@@ -8,7 +8,7 @@ function Why() {
     <section id="about">
       <div className="sw">
         <div className="center fi">
-          <div className="eyebrow">// Why BioAI Lab · Deepiotics</div>
+          <div className="eyebrow">{'// Why BioAI Lab · Deepiotics'}</div>
           <h2 className="h2">What Separates Us from<br />Every Other <span className="gt">Option</span></h2>
           <p className="lead center">There are tutors. Freelancers. Generic consultancies. Then there is BioAI Lab — the only AI-powered biotech platform built end-to-end, at international standard, under a dedicated AI company.</p>
         </div>

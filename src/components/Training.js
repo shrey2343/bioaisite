@@ -9,7 +9,7 @@ function Training() {
     <section id="training">
       <div className="sw">
         <div className="fi center">
-          <div className="eyebrow">// Training Academy</div>
+          <div className="eyebrow">{'// Training Academy'}</div>
           <h2 className="h2">The AI Skills Biotech<br />Employers Are <span className="gt">Hiring For</span></h2>
           <p className="lead">Our courses don't teach theory. They build the exact tools, pipelines, and portfolios that open doors at leading research labs and biotech companies worldwide.</p>
         </div>

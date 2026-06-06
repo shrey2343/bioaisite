@@ -9,7 +9,7 @@ function Services() {
       <div className="sw">
         <div className="services-grid">
           <div className="fi">
-            <div className="eyebrow">// Research & Expert Services</div>
+            <div className="eyebrow">{'// Research & Expert Services'}</div>
             <h2 className="h2 services-title">Specialist Support for<br /><span className="gt">Serious Research</span></h2>
             <p className="lead services-lead" style={{marginBottom:'1.75rem'}}>No generalists. No juniors. Every BioAI Lab expert holds a PhD in their exact domain — matched to your specific field, not assigned by availability.</p>
             <div className="trusted-box">

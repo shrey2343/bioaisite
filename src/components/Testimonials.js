@@ -8,7 +8,7 @@ function Testimonials() {
     <section>
       <div className="sw" style={{paddingTop:2}}>
         <div className="center">
-          <div className="eyebrow fi">// What Our Clients Say</div>
+          <div className="eyebrow fi">{'// What Our Clients Say'}</div>
           <h2 className="h2 fi">Real Outcomes.<br /><span className="gt">Real People.</span></h2>
         </div>
         <div className="tgrid fi" style={{marginTop:'3rem'}}>

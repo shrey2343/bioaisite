@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useState } from 'react';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
 import ParticleCanvas from '../components/ParticleCanvas';
@@ -232,7 +232,7 @@ function BioAILabPage() {
       <section className="cta-section">
         <div className="cta-orb"></div>
         <div style={{position:'relative',zIndex:1,maxWidth:'680px',margin:'0 auto'}}>
-          <div className="eyebrow fi" style={{justifyContent:'center',display:'flex'}}>// Take the First Step</div>
+          <div className="eyebrow fi" style={{justifyContent:'center',display:'flex'}}>{'// Take the First Step'}</div>
           <h2 className="h2 fi" style={{marginBottom:'1.25rem'}}>Ready to Start Your <em style={{fontStyle:'italic',background:'var(--grad2)',WebkitBackgroundClip:'text',WebkitTextFillColor:'transparent',backgroundClip:'text'}}>Bioinformatics Career?</em></h2>
           <p className="lead center fi" style={{marginBottom:'3rem'}}>No coding. No prior bioinformatics experience required. Just 60 minutes a day and the drive to build something real.</p>
           <div className="cta-btns fi">

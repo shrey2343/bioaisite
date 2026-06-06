@@ -301,7 +301,7 @@ function NoCodeBioAIPage() {
       <section className="cta-section">
         <div className="cta-orb"></div>
         <div style={{position:'relative',zIndex:1,maxWidth:'680px',margin:'0 auto'}}>
-          <div className="eyebrow fi" style={{justifyContent:'center',display:'flex'}}>// Learn. Build. Certify.</div>
+          <div className="eyebrow fi" style={{justifyContent:'center',display:'flex'}}>{'// Learn. Build. Certify.'}</div>
           <h2 className="h2 fi" style={{marginBottom:'1.25rem'}}>Future-ready skills for careers in <em style={{fontStyle:'italic',background:'var(--grad2)',WebkitBackgroundClip:'text',WebkitTextFillColor:'transparent',backgroundClip:'text'}}>bioinformatics, data science, and biotechnology.</em></h2>
           <div className="cta-btns fi">
             <a href="https://docs.google.com/forms/d/e/1FAIpQLSe6JxqYEUKk6Zq05XCzhhiaooeZ35dsp6v9M-vmmfySv1-qjA/viewform?usp=header" target="_blank" rel="noopener noreferrer" className="btn btn-grad">Apply Online →</a>
