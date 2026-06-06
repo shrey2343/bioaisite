@@ -1,129 +1,215 @@
-.bioai-page{background:var(--bg);min-height:100vh;position:relative;}
+/* =========================================
+   BIO-AI LAB PAGE — dbacoach.com aesthetic
+   ========================================= */
 
-.bioai-hero{
-  min-height:100vh;
-  display:flex;
-  align-items:center;
-  padding:100px 5vw 80px;
-  position:relative;
-  overflow:hidden;
-  text-align:center;
-  background:var(--bg);
+.bioai-page { background: var(--bg); min-height: 100vh; }
+
+/* ── Hero ── */
+.bioai-hero {
+  min-height: 85vh;
+  display: flex; align-items: center;
+  padding: 120px 5vw 100px;
+  position: relative; overflow: hidden; text-align: center;
+  background: var(--bg);
+  background-image:
+    radial-gradient(circle at 20% 30%, rgba(201,151,76,0.07) 0%, transparent 55%),
+    radial-gradient(circle at 80% 70%, rgba(27,67,50,0.05) 0%, transparent 50%);
+}
+.bioai-hero::before { display: none; }
+
+.bioai-hero-inner { max-width: 860px; margin: 0 auto; position: relative; z-index: 2; }
+
+.bioai-hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.8rem, 6vw, 5.5rem);
+  font-weight: 600; line-height: 1.1; letter-spacing: -0.02em;
+  color: var(--forest); margin-bottom: 1.5rem;
+}
+.bioai-hero-sub {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.08rem; font-weight: 400; line-height: 1.8;
+  color: var(--text-mid); max-width: 680px; margin: 0 auto 2.5rem;
 }
 
-.bioai-hero::before{
-  content:'';
-  position:absolute;
-  inset:0;
-  background-image:radial-gradient(circle,rgba(127,119,221,0.1) 1px,transparent 1px);
-  background-size:28px 28px;
-  z-index:0;
-  pointer-events:none;
+.bioai-hero-stats {
+  display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap;
+  padding: 1.75rem 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+  margin-bottom: 2.5rem;
 }
-.bioai-hero-inner{max-width:900px;margin:0 auto;position:relative;z-index:2;}
-.bioai-hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(3.5rem,8vw,7rem);font-weight:700;line-height:1.04;letter-spacing:-0.03em;color:var(--white);margin-bottom:1.75rem;}
-.bioai-hero-sub{font-size:1.15rem;font-weight:600;line-height:1.95;color:rgb(255, 255, 255);max-width:700px;margin:0 auto 2.75rem;}
-
-.bioai-hero-stats{display:flex;gap:2rem;justify-content:center;flex-wrap:wrap;padding:2rem 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);margin-bottom:2.5rem;}
-.bioai-stat{font-size:0.85rem;font-weight:500;color:var(--mint);font-family:'Space Mono',monospace;letter-spacing:0.05em;}
-
-.bioai-hero-actions{display:flex;gap:1.5rem;justify-content:center;align-items:center;flex-wrap:wrap;}
-.bioai-contact-info{display:flex;gap:1rem;align-items:center;font-size:0.8rem;color:rgba(220,218,255,0.9);font-weight:600;}
-
-.bioai-container{max-width:1200px;margin:0 auto;}
-.bioai-desc{font-size:1rem;font-weight:700;line-height:1.85;color:rgba(220,218,255,0.92);max-width:900px;margin:2rem auto 0;}
-
-/* Section alternating backgrounds */
-.bioai-section-light{background:var(--bg-light);color:var(--text-dark);}
-.bioai-section-light .eyebrow{color:#7F77DD;font-weight:600;}
-.bioai-section-light .h2{color:#030d07;}
-.bioai-section-light .lead{color:#26215C;opacity:0.95;}
-.bioai-section-light .gt{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
-.bioai-section-light .bioai-desc{color:#26215C;opacity:0.95;}
-
-.bioai-glance-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem;margin-top:3rem;}
-.bioai-glance-card{border:1px solid var(--border);border-radius:16px;padding:2.5rem 2rem;background:var(--glass);backdrop-filter:blur(12px);transition:border-color 0.25s,transform 0.25s,box-shadow 0.25s;text-align:left;}
-.bioai-glance-card:hover{border-color:rgba(175,169,236,0.25);transform:translateY(-4px);box-shadow:0 24px 60px rgba(127,119,221,0.12);}
-.bioai-glance-head{display:flex;align-items:center;gap:0.9rem;margin-bottom:0.85rem;}
-.bioai-glance-icon{font-size:2rem;line-height:1;flex-shrink:0;}
-.bioai-glance-card h3{font-size:1.2rem;font-weight:700;color:var(--white);margin:0;}
-.bioai-glance-card p{font-size:0.92rem;font-weight:600;line-height:1.8;color:rgba(220,218,255,0.92);}
-
-.bioai-audience-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.25rem;margin-top:3rem;}
-.bioai-audience-card{border:1px solid var(--border);border-radius:14px;padding:2rem 1.75rem;background:var(--glass);backdrop-filter:blur(8px);position:relative;overflow:hidden;transition:border-color 0.25s,transform 0.25s;text-align:left;}
-.bioai-audience-card:hover{border-color:rgba(175,169,236,0.22);transform:translateY(-3px);}
-.bioai-audience-num{font-family:'Cormorant Garamond',serif;font-size:3rem;font-weight:700;background:linear-gradient(135deg,rgba(127,119,221,0.3) 0%,rgba(175,169,236,0.15) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;margin-bottom:0.75rem;}
-.bioai-audience-card h3{font-size:1.05rem;font-weight:700;color:var(--white);margin-bottom:0.5rem;}
-.bioai-audience-card p{font-size:0.9rem;font-weight:600;line-height:1.8;color:rgba(220,218,255,0.92);}
-
-.bioai-curriculum-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:1.25rem;margin-top:3rem;}
-.bioai-curriculum-card{border:1px solid var(--border);border-radius:14px;padding:2rem 1.75rem;background:var(--glass);backdrop-filter:blur(8px);transition:border-color 0.25s,transform 0.25s;text-align:left;}
-.bioai-curriculum-card:hover{border-color:rgba(175,169,236,0.22);transform:translateY(-3px);}
-.bioai-curriculum-head{display:flex;align-items:center;gap:0.75rem;margin-bottom:0.75rem;}
-.bioai-week-badge{display:inline-block;padding:4px 12px;background:linear-gradient(135deg,rgba(127,119,221,0.2),rgba(175,169,236,0.15));color:var(--mint);font-size:0.6rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;border-radius:3px;border:1px solid rgba(175,169,236,0.3);font-family:'Space Mono',monospace;white-space:nowrap;flex-shrink:0;}
-.bioai-curriculum-card h3{font-size:1.1rem;font-weight:700;color:var(--white);margin:0;}
-.bioai-curriculum-card p{font-size:0.9rem;font-weight:600;line-height:1.75;color:rgba(220,218,255,0.92);}
-
-.bioai-bonus-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.5rem;margin-top:3rem;}
-.bioai-bonus-card{border:1px solid var(--border);border-radius:12px;padding:2rem 1.5rem;background:var(--glass);backdrop-filter:blur(8px);text-align:center;transition:border-color 0.25s,background 0.25s;}
-.bioai-bonus-card:hover{border-color:rgba(175,169,236,0.25);background:var(--glass2);}
-.bioai-bonus-icon{width:48px;height:48px;border-radius:10px;background:linear-gradient(135deg,rgba(127,119,221,0.12),rgba(175,169,236,0.06));border:1px solid rgba(175,169,236,0.12);display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin:0 auto 1.25rem;}
-.bioai-bonus-card p{font-size:0.92rem;font-weight:600;line-height:1.7;color:rgba(220,218,255,0.92);}
-
-.bioai-bonuses-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.25rem;margin-top:3rem;}
-.bioai-bonuses-card{border:1px solid var(--border);border-radius:14px;padding:2rem 1.75rem;background:var(--glass);backdrop-filter:blur(8px);transition:border-color 0.25s,transform 0.25s;text-align:left;}
-.bioai-bonuses-card:hover{border-color:rgba(175,169,236,0.22);transform:translateY(-3px);}
-.bioai-bonuses-head{display:flex;align-items:center;gap:0.75rem;margin-bottom:0.75rem;}
-.bioai-bonuses-num{display:inline-block;padding:4px 12px;background:linear-gradient(135deg,rgba(127,119,221,0.2),rgba(175,169,236,0.15));color:var(--mint);font-size:0.6rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;border-radius:3px;border:1px solid rgba(175,169,236,0.3);font-family:'Space Mono',monospace;white-space:nowrap;flex-shrink:0;}
-.bioai-bonuses-card h3{font-size:1.1rem;font-weight:700;color:var(--white);margin:0;}
-.bioai-bonuses-card p{font-size:0.9rem;font-weight:600;line-height:1.75;color:rgba(220,218,255,0.92);}
-
-.bioai-delivery-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem;margin-top:3rem;}
-.bioai-delivery-card{border:1px solid var(--border);border-radius:14px;padding:2.5rem 2rem;background:var(--glass);backdrop-filter:blur(8px);transition:border-color 0.25s,transform 0.25s;text-align:left;}
-.bioai-delivery-card:hover{border-color:rgba(175,169,236,0.22);transform:translateY(-3px);}
-.bioai-delivery-head{display:flex;align-items:center;gap:0.85rem;margin-bottom:0.75rem;}
-.bioai-delivery-icon{font-size:2rem;line-height:1;flex-shrink:0;}
-.bioai-delivery-card h3{font-size:1.12rem;font-weight:700;color:var(--white);margin:0;}
-.bioai-delivery-card p{font-size:0.92rem;font-weight:600;line-height:1.75;color:rgba(220,218,255,0.92);}
-
-@media(max-width:768px){
-  .bioai-hero-stats{flex-direction:column;gap:1rem;}
-  .bioai-glance-grid,.bioai-audience-grid,.bioai-curriculum-grid,.bioai-bonus-grid,.bioai-bonuses-grid,.bioai-delivery-grid{grid-template-columns:1fr;}
+.bioai-stat {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.82rem; font-weight: 600; color: var(--forest-mid); letter-spacing: 0.03em;
 }
 
+.bioai-hero-actions { display: flex; gap: 1.25rem; justify-content: center; flex-wrap: wrap; }
+.bioai-contact-info {
+  display: flex; gap: 0.75rem; align-items: center;
+  font-family: 'Inter', sans-serif; font-size: 0.82rem; color: var(--text-muted); font-weight: 500;
+}
 
-/* Light section card styles */
-.bioai-section-light .bioai-glance-card,
-.bioai-section-light .bioai-audience-card,
-.bioai-section-light .bioai-curriculum-card,
-.bioai-section-light .bioai-bonus-card,
-.bioai-section-light .bioai-bonuses-card,
-.bioai-section-light .bioai-delivery-card{background:rgba(255,255,255,0.8);border-color:rgba(127,119,221,0.25);}
+/* ── Container ── */
+.bioai-container { max-width: 1200px; margin: 0 auto; }
+.bioai-desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem; font-weight: 400; line-height: 1.85;
+  color: var(--text-mid); max-width: 860px; margin: 2rem auto 0;
+}
 
-.bioai-section-light .bioai-glance-card:hover,
-.bioai-section-light .bioai-audience-card:hover,
-.bioai-section-light .bioai-curriculum-card:hover,
-.bioai-section-light .bioai-bonuses-card:hover,
-.bioai-section-light .bioai-delivery-card:hover{border-color:var(--emerald);background:rgba(255,255,255,0.95);}
+/* ── Section alternating ── */
+.bioai-section-light { background: var(--bg); color: var(--text); padding: 100px 5vw; }
+.bioai-section-warm  { background: var(--bg2); color: var(--text); padding: 100px 5vw; }
+.bioai-section-light .eyebrow,
+.bioai-section-warm  .eyebrow { color: var(--forest-mid); font-weight: 700; }
+.bioai-section-light .h2,
+.bioai-section-warm  .h2 { color: var(--forest); }
+.bioai-section-light .lead,
+.bioai-section-warm  .lead { color: var(--text-mid); }
+.bioai-section-light .gt,
+.bioai-section-warm  .gt {
+  background: var(--grad); -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; background-clip: text;
+}
+.bioai-section-light .bioai-desc,
+.bioai-section-warm  .bioai-desc { color: var(--text-mid); }
 
-.bioai-section-light .bioai-glance-card h3,
-.bioai-section-light .bioai-audience-card h3,
-.bioai-section-light .bioai-curriculum-card h3,
-.bioai-section-light .bioai-bonuses-card h3,
-.bioai-section-light .bioai-delivery-card h3{color:#030d07;font-weight:700;}
+/* ── Glance cards ── */
+.bioai-glance-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem; margin-top: 3rem;
+}
+.bioai-glance-card {
+  border: 1.5px solid var(--border); border-radius: 14px;
+  padding: 2rem 1.75rem; background: var(--card-bg);
+  box-shadow: var(--card-shadow);
+  transition: all 0.3s ease; text-align: left;
+}
+.bioai-glance-card:hover {
+  border-color: var(--forest-mid); transform: translateY(-5px);
+  box-shadow: var(--card-shadow-hover);
+}
+.bioai-glance-head { display: flex; align-items: center; gap: 0.9rem; margin-bottom: 0.85rem; }
+.bioai-glance-icon { font-size: 2rem; line-height: 1; flex-shrink: 0; }
+.bioai-glance-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.15rem; font-weight: 600; color: var(--forest); margin: 0;
+}
+.bioai-glance-card p {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem; font-weight: 400; line-height: 1.8; color: var(--text-mid);
+}
 
-.bioai-section-light .bioai-glance-card p,
-.bioai-section-light .bioai-audience-card p,
-.bioai-section-light .bioai-curriculum-card p,
-.bioai-section-light .bioai-bonuses-card p,
-.bioai-section-light .bioai-delivery-card p{color:#26215C;opacity:1;font-weight:600;}
+/* ── Audience cards ── */
+.bioai-audience-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.25rem; margin-top: 3rem;
+}
+.bioai-audience-card {
+  border: 1.5px solid var(--border); border-radius: 14px;
+  padding: 2rem 1.75rem; background: var(--card-bg);
+  box-shadow: var(--card-shadow);
+  transition: all 0.3s ease; text-align: left;
+}
+.bioai-audience-card:hover { border-color: var(--forest-mid); transform: translateY(-4px); box-shadow: var(--card-shadow-hover); }
+.bioai-audience-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem; font-weight: 700;
+  background: var(--grad-forest); -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; background-clip: text;
+  line-height: 1; margin-bottom: 0.75rem;
+}
+.bioai-audience-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.05rem; font-weight: 600; color: var(--forest); margin-bottom: 0.5rem;
+}
+.bioai-audience-card p {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem; font-weight: 400; line-height: 1.8; color: var(--text-mid);
+}
 
-.bioai-section-light .bioai-week-badge,
-.bioai-section-light .bioai-bonuses-num{background:rgba(127,119,221,0.2);color:#7F77DD;border-color:rgba(127,119,221,0.3);font-weight:700;}
+/* ── Curriculum cards ── */
+.bioai-curriculum-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.25rem; margin-top: 3rem;
+}
+.bioai-curriculum-card {
+  border: 1.5px solid var(--border); border-radius: 14px;
+  padding: 2rem 1.75rem; background: var(--card-bg);
+  box-shadow: var(--card-shadow);
+  transition: all 0.3s ease; text-align: left;
+}
+.bioai-curriculum-card:hover { border-color: var(--forest-mid); transform: translateY(-4px); box-shadow: var(--card-shadow-hover); }
+.bioai-curriculum-head { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem; }
+.bioai-week-badge {
+  display: inline-block; padding: 4px 12px;
+  background: rgba(27,67,50,0.08);
+  color: var(--forest-mid); font-family: 'Inter', sans-serif;
+  font-size: 0.6rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+  border-radius: 4px; border: 1px solid rgba(27,67,50,0.2);
+  white-space: nowrap; flex-shrink: 0;
+}
+.bioai-curriculum-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.08rem; font-weight: 600; color: var(--forest); margin: 0;
+}
+.bioai-curriculum-card p {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem; font-weight: 400; line-height: 1.75; color: var(--text-mid);
+}
 
-.bioai-section-light .bioai-audience-num{background:linear-gradient(135deg,rgba(127,119,221,0.6) 0%,rgba(175,169,236,0.4) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+/* ── Bonus / Delivery cards ── */
+.bioai-bonus-grid,
+.bioai-bonuses-grid,
+.bioai-delivery-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem; margin-top: 3rem;
+}
+.bioai-bonus-card,
+.bioai-bonuses-card,
+.bioai-delivery-card {
+  border: 1.5px solid var(--border); border-radius: 14px;
+  padding: 2rem 1.75rem; background: var(--card-bg);
+  box-shadow: var(--card-shadow);
+  transition: all 0.3s ease; text-align: left;
+}
+.bioai-bonus-card { text-align: center; }
+.bioai-bonus-card:hover,
+.bioai-bonuses-card:hover,
+.bioai-delivery-card:hover { border-color: var(--forest-mid); transform: translateY(-4px); box-shadow: var(--card-shadow-hover); }
+.bioai-bonus-icon {
+  width: 52px; height: 52px; border-radius: 12px;
+  background: rgba(27,67,50,0.08); border: 1.5px solid rgba(27,67,50,0.15);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.5rem; margin: 0 auto 1.25rem;
+}
+.bioai-bonuses-head,
+.bioai-delivery-head { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem; }
+.bioai-bonuses-num {
+  display: inline-block; padding: 4px 12px;
+  background: rgba(27,67,50,0.08); border: 1px solid rgba(27,67,50,0.2);
+  color: var(--forest-mid); font-family: 'Inter', sans-serif;
+  font-size: 0.6rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+  border-radius: 4px; white-space: nowrap; flex-shrink: 0;
+}
+.bioai-delivery-icon { font-size: 2rem; line-height: 1; flex-shrink: 0; }
+.bioai-bonus-card h3,
+.bioai-bonus-card p { font-family: 'Inter', sans-serif; }
+.bioai-bonus-card h3 { font-size: 1rem; font-weight: 600; color: var(--forest); margin-bottom: 0.5rem; }
+.bioai-bonus-card p,
+.bioai-bonuses-card p,
+.bioai-delivery-card p {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem; font-weight: 400; line-height: 1.75; color: var(--text-mid);
+}
+.bioai-bonuses-card h3,
+.bioai-delivery-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.08rem; font-weight: 600; color: var(--forest); margin: 0;
+}
 
-.bioai-section-light .bioai-bonus-card{background:rgba(255,255,255,0.8);border-color:rgba(127,119,221,0.25);}
-.bioai-section-light .bioai-bonus-card:hover{background:rgba(255,255,255,0.95);}
-.bioai-section-light .bioai-bonus-icon{background:rgba(127,119,221,0.15);border-color:rgba(127,119,221,0.25);}
-.bioai-section-light .bioai-bonus-card p{color:#26215C;font-weight:600;}
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .bioai-hero-stats { flex-direction: column; gap: 1rem; }
+  .bioai-glance-grid, .bioai-audience-grid, .bioai-curriculum-grid,
+  .bioai-bonus-grid, .bioai-bonuses-grid, .bioai-delivery-grid { grid-template-columns: 1fr; }
+  .bioai-section-light, .bioai-section-warm { padding: 70px 5vw; }
+}

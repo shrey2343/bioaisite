@@ -10,6 +10,16 @@
   --bg3:        #EDE8E1;
   --bg-dark:    #1A3C34;
   --bg-dark2:   #152E27;
+  --bg-light:   #FAF9F6;
+
+  /* Legacy aliases (used by sub-pages) */
+  --white:      #FFFFFF;
+  --glass:      rgba(255,255,255,0.85);
+  --glass2:     rgba(255,255,255,0.95);
+  --emerald:    #2D6A4F;
+  --mint:       #2D6A4F;
+  --mint2:      #1B4332;
+  --text-dark:  #1C1C1C;
 
   /* Primary palette */
   --forest:     #1B4332;
@@ -74,6 +84,24 @@ body::before { display: none; }
 .section-dark  { background: var(--bg-dark);  color: var(--text-light); }
 .section-light { background: var(--bg);        color: var(--text); }
 .section-warm  { background: var(--bg2);       color: var(--text); }
+
+/* Section divider (used in HomePage) */
+.sec-div { display: none; }
+
+/* section-dark overrides — text on dark green background */
+.section-dark .eyebrow { color: var(--gold-light); }
+.section-dark .h2      { color: #fff; }
+.section-dark .lead    { color: rgba(255,255,255,0.75); }
+.section-dark .gt {
+  background: var(--grad);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+/* section-dark CTA section pass-through */
+#contact.section-dark,
+.cta-section { background: var(--bg-dark); }
+.section-dark .cta-section { background: transparent; }
 
 /* ── Light-section colour overrides (replaces old purple overrides) ── */
 .section-light .h2,
