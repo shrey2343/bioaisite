@@ -71,7 +71,7 @@ function Navigation() {
   return (
     <nav>
       <Link to="/" className="logo-wrap">
-        <img src="/logo.svg" alt="BioAI Lab" className="logo-img" />
+        <img src="/logo heropage.svg" alt="BioAI Lab" className="logo-img" />
       </Link>
 
       {/* Hamburger Menu Button - Mobile Only */}

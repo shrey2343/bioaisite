@@ -24,7 +24,7 @@ function AudienceSplit() {
               <li>AI Tools for Research Workflows</li>
               <li>Career support and placement pathways</li>
             </ul>
-            <a href="#training" className="btn btn-glass">Explore All Courses →</a>
+            <a href="#training" className="btn btn-grad">Explore All Courses →</a>
           </div>
           <div className="ap dark-panel">
             <span className="ap-num">02</span>
@@ -37,7 +37,7 @@ function AudienceSplit() {
               <li>NIH, NSF, Wellcome Trust, DBT grant proposals</li>
               <li>White papers, biosafety policy & regulatory submissions</li>
             </ul>
-            <a href="#services" className="btn btn-grad">Explore Research Services →</a>
+            <a href="#services" className="btn btn-light">Explore Research Services →</a>
           </div>
         </div>
       </div>

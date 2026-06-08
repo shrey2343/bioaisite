@@ -5,7 +5,7 @@ function Footer() {
     <footer>
       <div className="foot-grid">
         <div>
-          <img src="/logo.svg" alt="BioAI Lab" className="foot-logo-img" />
+          <img src="/logo heropage.svg" alt="BioAI Lab" className="foot-logo-img" />
           <div className="foot-url">bioai.deepiotics.com &nbsp;·&nbsp; A Deepiotics Initiative</div>
           <p className="foot-tagline">The world's only AI-powered end-to-end biotech platform — training the next generation while delivering expert services to the current generation of researchers, professors, and policymakers.</p>
           <div className="foot-badges">

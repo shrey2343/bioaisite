@@ -12,6 +12,14 @@ function Hero() {
 
   return (
     <section className="hero">
+      {/* Background Video - Uncomment and add your video */}
+      {/* <video className="hero-bg-video" autoPlay muted loop playsInline>
+        <source src="/your-video.mp4" type="video/mp4" />
+      </video> */}
+      
+      {/* Background Image - Uncomment and add your image */}
+      {/* <div className="hero-bg-image" style={{backgroundImage: 'url(/your-image.jpg)'}}></div> */}
+      
       <ParticleCanvas />
       <div className="orb orb1" data-parallax="0.3"></div>
       <div className="orb orb2" data-parallax="0.5"></div>

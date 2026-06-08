@@ -77,7 +77,7 @@ function NoCodeBioAIPage() {
       </section>
 
       {/* 8-Week Curriculum */}
-      <section className="sw bioai-section-light">
+      <section className="nocode-section-dark">
         <div className="nocode-container center fi">
           <div className="eyebrow">8-Week Curriculum</div>
           <h2 className="h2">Complete Learning <span className="gt">Path</span></h2>
@@ -171,7 +171,7 @@ function NoCodeBioAIPage() {
       </section>
 
       {/* You Will Be Able To */}
-      <section className="sw" style={{background:'var(--bg)'}}>
+      <section className="nocode-section-light">
         <div className="nocode-container center fi">
           <div className="eyebrow">You Will Be Able To</div>
           <h2 className="h2">Skills You'll <span className="gt">Master</span></h2>
@@ -217,32 +217,52 @@ function NoCodeBioAIPage() {
       </section>
 
       {/* Tools & Technologies */}
-      <section className="sw nocode-section-light">
+      <section className="nocode-section-dark">
         <div className="nocode-container center fi">
           <div className="eyebrow">Tools & Technologies</div>
           <h2 className="h2">Industry-Standard <span className="gt">Tech Stack</span></h2>
           
           <div className="nocode-tools-grid fi">
-            <div className="nocode-tool-badge">Linux / Bash</div>
-            <div className="nocode-tool-badge">Python</div>
-            <div className="nocode-tool-badge">Biopython</div>
-            <div className="nocode-tool-badge">R / RStudio</div>
-            <div className="nocode-tool-badge">FastQC</div>
-            <div className="nocode-tool-badge">HiSAT2</div>
-            <div className="nocode-tool-badge">StringTie</div>
-            <div className="nocode-tool-badge">DESeq2</div>
-            <div className="nocode-tool-badge">scikit-learn</div>
-            <div className="nocode-tool-badge">pandas / numpy</div>
-            <div className="nocode-tool-badge">NCBI</div>
-            <div className="nocode-tool-badge">Ensembl</div>
-            <div className="nocode-tool-badge">UniProt</div>
-            <div className="nocode-tool-badge">PDB</div>
+            <div className="nocode-tool-card">
+              <div className="nocode-tool-icon">💻</div>
+              <h3 className="nocode-tool-card-title">Programming & Analysis</h3>
+              <div className="nocode-tool-badges-wrapper">
+                <div className="nocode-tool-badge">Linux / Bash</div>
+                <div className="nocode-tool-badge">Python</div>
+                <div className="nocode-tool-badge">Biopython</div>
+                <div className="nocode-tool-badge">R / RStudio</div>
+                <div className="nocode-tool-badge">pandas / numpy</div>
+              </div>
+            </div>
+
+            <div className="nocode-tool-card">
+              <div className="nocode-tool-icon">🧬</div>
+              <h3 className="nocode-tool-card-title">NGS & Analysis Tools</h3>
+              <div className="nocode-tool-badges-wrapper">
+                <div className="nocode-tool-badge">FastQC</div>
+                <div className="nocode-tool-badge">HiSAT2</div>
+                <div className="nocode-tool-badge">StringTie</div>
+                <div className="nocode-tool-badge">DESeq2</div>
+                <div className="nocode-tool-badge">scikit-learn</div>
+              </div>
+            </div>
+
+            <div className="nocode-tool-card">
+              <div className="nocode-tool-icon">🗄️</div>
+              <h3 className="nocode-tool-card-title">Databases & Resources</h3>
+              <div className="nocode-tool-badges-wrapper">
+                <div className="nocode-tool-badge">NCBI</div>
+                <div className="nocode-tool-badge">Ensembl</div>
+                <div className="nocode-tool-badge">UniProt</div>
+                <div className="nocode-tool-badge">PDB</div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Program Highlights */}
-      <section className="sw" style={{background:'var(--bg)'}}>
+      <section className="nocode-section-light">
         <div className="nocode-container center fi">
           <div className="eyebrow">Program Highlights</div>
           <h2 className="h2">Why Choose <span className="gt">BioCode Mastery</span></h2>
@@ -276,7 +296,7 @@ function NoCodeBioAIPage() {
       </section>
 
       {/* Certificate */}
-      <section className="sw nocode-section-light">
+      <section className="nocode-section-dark">
         <div className="nocode-container center fi">
           <div className="nocode-certificate-box">
             <div className="nocode-cert-left">

@@ -1,23 +1,246 @@
 /* =========================================
-   BIO-AI LAB PAGE — dbacoach.com aesthetic
+   BIO-AI LAB PAGE — Website Theme Match
    ========================================= */
 
-.bioai-page { background: var(--bg); min-height: 100vh; }
+.bioai-page { 
+  background: var(--bg); 
+  min-height: 100vh; 
+  width: 100%;
+  overflow-x: hidden;
+}
 
 /* ── Hero ── */
 .bioai-hero {
   min-height: 85vh;
-  display: flex; align-items: center;
-  padding: 120px 5vw 100px;
-  position: relative; overflow: hidden; text-align: center;
+  display: flex; 
+  align-items: center;
+  justify-content: center;
+  padding: 120px 0 100px;
+  position: relative; 
+  overflow: hidden; 
+  text-align: center;
   background: var(--bg);
   background-image:
-    radial-gradient(circle at 20% 30%, rgba(201,151,76,0.07) 0%, transparent 55%),
+    radial-gradient(circle at 20% 30%, rgba(201,151,76,0.08) 0%, transparent 55%),
     radial-gradient(circle at 80% 70%, rgba(27,67,50,0.05) 0%, transparent 50%);
+  width: 100%;
 }
 .bioai-hero::before { display: none; }
 
-.bioai-hero-inner { max-width: 860px; margin: 0 auto; position: relative; z-index: 2; }
+/* Simplified background elements */
+.hero-svg-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.2;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.dna-animation {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+.hero-video-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.hero-video-bg video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.15;
+  filter: sepia(20%) hue-rotate(80deg);
+}
+
+.hero-video-fallback {
+  display: none;
+  width: 100%;
+  height: 100%;
+}
+
+.fallback-gradient {
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, 
+              rgba(27,67,50,0.08) 0%, 
+              rgba(201,151,76,0.08) 50%, 
+              rgba(27,67,50,0.04) 100%);
+}
+
+.bioai-hero-inner { 
+  max-width: 860px; 
+  margin: 0 auto; 
+  position: relative; 
+  z-index: 2; 
+  padding: 0 20px;
+  width: 100%;
+}
+
+/* =========================================
+   ABOUT SECTION - NGS Pipeline
+   ========================================= */
+
+.about-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  margin-top: 3rem;
+  text-align: left;
+}
+
+.about-content {
+  text-align: left;
+}
+
+.ngs-pipeline {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.pipeline-step {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.step-node {
+  background: rgba(201,151,76,0.15);
+  border: 2px solid var(--gold);
+  border-radius: 12px;
+  padding: 12px 20px;
+  color: var(--gold-light);
+  font-weight: 600;
+  min-width: 80px;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.step-arrow {
+  width: 40px;
+  height: 3px;
+  background: linear-gradient(to right, var(--gold), var(--forest));
+  margin: 0 20px;
+  position: relative;
+}
+
+.step-arrow::after {
+  content: '';
+  position: absolute;
+  right: -8px;
+  top: -5px;
+  width: 0;
+  height: 0;
+  border-left: 8px solid var(--forest);
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+}
+
+/* =========================================
+   HEXAGON BACKGROUND PATTERN
+   ========================================= */
+
+.who-section {
+  position: relative;
+}
+
+.hexagon-pattern {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.06;
+  background-image: 
+    radial-gradient(circle at 20% 80%, rgba(27,67,50,0.2) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(27,67,50,0.15) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(27,67,50,0.1) 0%, transparent 50%);
+  background-size: 60px 60px;
+  z-index: 0;
+}
+
+/* =========================================
+   CURRICULUM TIMELINE
+   ========================================= */
+
+.curriculum-section {
+  position: relative;
+}
+
+.bioai-curriculum-grid {
+  position: relative;
+}
+
+.timeline-line {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 3px;
+  background: linear-gradient(to bottom, var(--forest), var(--gold));
+  transform: translateX(-50%);
+  border-radius: 2px;
+  transition: height 0.3s ease;
+}
+
+/* =========================================
+   DELIVERY SECTION IMAGES
+   ========================================= */
+
+.bioai-delivery-image {
+  width: 100%;
+  height: 160px;
+  border-radius: 12px 12px 0 0;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+}
+
+.bioai-delivery-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.bioai-delivery-card:hover .bioai-delivery-image img {
+  transform: scale(1.02);
+}
+
+/* =========================================
+   CTA SECTION PULSE ORB
+   ========================================= */
+
+.cta-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.pulse-orb {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: radial-gradient(circle, 
+              rgba(27,67,50,0.08) 0%, 
+              rgba(201,151,76,0.08) 40%, 
+              transparent 70%);
+  transform: translate(-50%, -50%);
+  z-index: 0;
+}
 
 .bioai-hero h1 {
   font-family: 'Playfair Display', serif;
@@ -47,17 +270,60 @@
   font-family: 'Inter', sans-serif; font-size: 0.82rem; color: var(--text-muted); font-weight: 500;
 }
 
+/* ── Section Base — all sections full width, centered content ── */
+.bioai-section-light,
+.bioai-section-warm,
+.bioai-section-dark {
+  width: 100%;
+  padding: 80px 0;
+  position: relative;
+  box-sizing: border-box;
+}
+
+/* Ensure sections break out of any container constraints */
+.bioai-page > section {
+  width: 100%;
+  display: block;
+}
+
+.bioai-section-light { 
+  background: var(--bg); 
+  color: var(--text); 
+}
+.bioai-section-warm  { 
+  background: var(--bg2); 
+  color: var(--text); 
+}
+.bioai-section-dark  { 
+  background: var(--bg-dark); 
+  color: var(--text-light); 
+}
+
 /* ── Container ── */
-.bioai-container { max-width: 1200px; margin: 0 auto; }
+.bioai-container { 
+  max-width: 1200px; 
+  margin: 0 auto; 
+  padding: 0 40px;
+  width: 100%;
+  box-sizing: border-box;
+  text-align: center;
+}
 .bioai-desc {
   font-family: 'Inter', sans-serif;
   font-size: 1rem; font-weight: 400; line-height: 1.85;
   color: var(--text-mid); max-width: 860px; margin: 2rem auto 0;
 }
 
-/* ── Section alternating ── */
-.bioai-section-light { background: var(--bg); color: var(--text); padding: 100px 5vw; }
-.bioai-section-warm  { background: var(--bg2); color: var(--text); padding: 100px 5vw; }
+/* ── Dark section text/color overrides ── */
+.bioai-section-dark .eyebrow { color: var(--gold-light); font-weight: 700; }
+.bioai-section-dark .h2 { color: var(--text-light); }
+.bioai-section-dark .lead { color: var(--text-on-dark); }
+.bioai-section-dark .bioai-desc { color: var(--text-on-dark); }
+.bioai-section-dark .gt {
+  background: var(--grad); -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; background-clip: text;
+}
+
 .bioai-section-light .eyebrow,
 .bioai-section-warm  .eyebrow { color: var(--forest-mid); font-weight: 700; }
 .bioai-section-light .h2,
@@ -72,16 +338,81 @@
 .bioai-section-light .bioai-desc,
 .bioai-section-warm  .bioai-desc { color: var(--text-mid); }
 
+/* ── Dark section card styling ── */
+.bioai-section-dark .bioai-glance-card,
+.bioai-section-dark .bioai-audience-card,
+.bioai-section-dark .bioai-curriculum-card,
+.bioai-section-dark .bioai-bonus-card,
+.bioai-section-dark .bioai-bonuses-card,
+.bioai-section-dark .bioai-delivery-card {
+  border: 1.5px solid rgba(255,255,255,0.15);
+  background: rgba(255,255,255,0.05);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.1);
+}
+
+.bioai-section-dark .bioai-glance-card:hover,
+.bioai-section-dark .bioai-audience-card:hover,
+.bioai-section-dark .bioai-curriculum-card:hover,
+.bioai-section-dark .bioai-bonus-card:hover,
+.bioai-section-dark .bioai-bonuses-card:hover,
+.bioai-section-dark .bioai-delivery-card:hover {
+  border-color: var(--gold);
+  box-shadow: 0 12px 48px rgba(0,0,0,0.15);
+}
+
+.bioai-section-dark .bioai-glance-card h3,
+.bioai-section-dark .bioai-audience-card h3,
+.bioai-section-dark .bioai-curriculum-card h3,
+.bioai-section-dark .bioai-bonus-card h3,
+.bioai-section-dark .bioai-bonuses-card h3,
+.bioai-section-dark .bioai-delivery-card h3 {
+  color: #fff;
+}
+
+.bioai-section-dark .bioai-glance-card p,
+.bioai-section-dark .bioai-audience-card p,
+.bioai-section-dark .bioai-curriculum-card p,
+.bioai-section-dark .bioai-bonus-card p,
+.bioai-section-dark .bioai-bonuses-card p,
+.bioai-section-dark .bioai-delivery-card p {
+  color: rgba(255,255,255,0.75);
+}
+
+.bioai-section-dark .bioai-week-badge {
+  background: rgba(201,151,76,0.12);
+  color: var(--gold-light);
+  border: 1px solid rgba(201,151,76,0.25);
+}
+
+.bioai-section-dark .bioai-bonuses-num {
+  background: rgba(201,151,76,0.12);
+  color: var(--gold-light);
+  border: 1px solid rgba(201,151,76,0.25);
+}
+
+.bioai-section-dark .bioai-bonus-icon {
+  background: rgba(201,151,76,0.12);
+  border: 1.5px solid rgba(201,151,76,0.25);
+}
+
 /* ── Glance cards ── */
 .bioai-glance-grid {
-  display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1.5rem; margin-top: 3rem;
+  display: grid; 
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem; 
+  margin-top: 3rem;
+  width: 100%;
 }
 .bioai-glance-card {
-  border: 1.5px solid var(--border); border-radius: 14px;
-  padding: 2rem 1.75rem; background: var(--card-bg);
+  border: 1.5px solid var(--border); 
+  border-radius: 14px;
+  padding: 2rem 1.75rem; 
+  background: var(--card-bg);
   box-shadow: var(--card-shadow);
-  transition: all 0.3s ease; text-align: left;
+  transition: all 0.3s ease; 
+  text-align: left;
+  width: 100%;
+  box-sizing: border-box;
 }
 .bioai-glance-card:hover {
   border-color: var(--forest-mid); transform: translateY(-5px);
@@ -100,16 +431,27 @@
 
 /* ── Audience cards ── */
 .bioai-audience-grid {
-  display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.25rem; margin-top: 3rem;
+  display: grid; 
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem; 
+  margin-top: 3rem;
+  width: 100%;
 }
 .bioai-audience-card {
-  border: 1.5px solid var(--border); border-radius: 14px;
-  padding: 2rem 1.75rem; background: var(--card-bg);
+  border: 1.5px solid var(--border); 
+  border-radius: 14px;
+  padding: 2rem 1.75rem; 
+  background: var(--card-bg);
   box-shadow: var(--card-shadow);
-  transition: all 0.3s ease; text-align: left;
+  transition: all 0.3s ease; 
+  text-align: left;
+  width: 100%;
+  box-sizing: border-box;
 }
-.bioai-audience-card:hover { border-color: var(--forest-mid); transform: translateY(-4px); box-shadow: var(--card-shadow-hover); }
+.bioai-audience-card:hover { 
+  border-color: var(--forest-mid); transform: translateY(-4px); 
+  box-shadow: var(--card-shadow-hover); 
+}
 .bioai-audience-num {
   font-family: 'Playfair Display', serif;
   font-size: 3rem; font-weight: 700;
@@ -128,16 +470,27 @@
 
 /* ── Curriculum cards ── */
 .bioai-curriculum-grid {
-  display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 1.25rem; margin-top: 3rem;
+  display: grid; 
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem; 
+  margin-top: 3rem;
+  width: 100%;
 }
 .bioai-curriculum-card {
-  border: 1.5px solid var(--border); border-radius: 14px;
-  padding: 2rem 1.75rem; background: var(--card-bg);
+  border: 1.5px solid var(--border); 
+  border-radius: 14px;
+  padding: 2rem 1.75rem; 
+  background: var(--card-bg);
   box-shadow: var(--card-shadow);
-  transition: all 0.3s ease; text-align: left;
+  transition: all 0.3s ease; 
+  text-align: left;
+  width: 100%;
+  box-sizing: border-box;
 }
-.bioai-curriculum-card:hover { border-color: var(--forest-mid); transform: translateY(-4px); box-shadow: var(--card-shadow-hover); }
+.bioai-curriculum-card:hover { 
+  border-color: var(--forest-mid); transform: translateY(-4px); 
+  box-shadow: var(--card-shadow-hover); 
+}
 .bioai-curriculum-head { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem; }
 .bioai-week-badge {
   display: inline-block; padding: 4px 12px;
@@ -156,33 +509,64 @@
   font-size: 0.9rem; font-weight: 400; line-height: 1.75; color: var(--text-mid);
 }
 
-/* ── Bonus / Delivery cards ── */
-.bioai-bonus-grid,
-.bioai-bonuses-grid,
-.bioai-delivery-grid {
-  display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 1.5rem; margin-top: 3rem;
+/* ── Bonus cards ── */
+.bioai-bonus-grid {
+  display: grid; 
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem; 
+  margin-top: 3rem;
+  width: 100%;
 }
-.bioai-bonus-card,
-.bioai-bonuses-card,
-.bioai-delivery-card {
-  border: 1.5px solid var(--border); border-radius: 14px;
-  padding: 2rem 1.75rem; background: var(--card-bg);
+.bioai-bonus-card {
+  border: 1.5px solid var(--border); 
+  border-radius: 14px;
+  padding: 2rem 1.75rem; 
+  background: var(--card-bg);
   box-shadow: var(--card-shadow);
-  transition: all 0.3s ease; text-align: left;
+  transition: all 0.3s ease; 
+  text-align: center;
+  width: 100%;
+  box-sizing: border-box;
 }
-.bioai-bonus-card { text-align: center; }
-.bioai-bonus-card:hover,
-.bioai-bonuses-card:hover,
-.bioai-delivery-card:hover { border-color: var(--forest-mid); transform: translateY(-4px); box-shadow: var(--card-shadow-hover); }
+.bioai-bonus-card:hover { 
+  border-color: var(--forest-mid); transform: translateY(-4px); 
+  box-shadow: var(--card-shadow-hover); 
+}
 .bioai-bonus-icon {
   width: 52px; height: 52px; border-radius: 12px;
   background: rgba(27,67,50,0.08); border: 1.5px solid rgba(27,67,50,0.15);
   display: flex; align-items: center; justify-content: center;
   font-size: 1.5rem; margin: 0 auto 1.25rem;
 }
-.bioai-bonuses-head,
-.bioai-delivery-head { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem; }
+.bioai-bonus-card p {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem; font-weight: 400; line-height: 1.75; color: var(--text-mid);
+}
+
+/* ── Bonuses cards ── */
+.bioai-bonuses-grid {
+  display: grid; 
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem; 
+  margin-top: 3rem;
+  width: 100%;
+}
+.bioai-bonuses-card {
+  border: 1.5px solid var(--border); 
+  border-radius: 14px;
+  padding: 2rem 1.75rem; 
+  background: var(--card-bg);
+  box-shadow: var(--card-shadow);
+  transition: all 0.3s ease; 
+  text-align: left;
+  width: 100%;
+  box-sizing: border-box;
+}
+.bioai-bonuses-card:hover { 
+  border-color: var(--forest-mid); transform: translateY(-4px); 
+  box-shadow: var(--card-shadow-hover); 
+}
+.bioai-bonuses-head { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem; }
 .bioai-bonuses-num {
   display: inline-block; padding: 4px 12px;
   background: rgba(27,67,50,0.08); border: 1px solid rgba(27,67,50,0.2);
@@ -190,26 +574,461 @@
   font-size: 0.6rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
   border-radius: 4px; white-space: nowrap; flex-shrink: 0;
 }
-.bioai-delivery-icon { font-size: 2rem; line-height: 1; flex-shrink: 0; }
-.bioai-bonus-card h3,
-.bioai-bonus-card p { font-family: 'Inter', sans-serif; }
-.bioai-bonus-card h3 { font-size: 1rem; font-weight: 600; color: var(--forest); margin-bottom: 0.5rem; }
-.bioai-bonus-card p,
-.bioai-bonuses-card p,
-.bioai-delivery-card p {
+.bioai-bonuses-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.08rem; font-weight: 600; color: var(--forest); margin: 0;
+}
+.bioai-bonuses-card p {
   font-family: 'Inter', sans-serif;
   font-size: 0.9rem; font-weight: 400; line-height: 1.75; color: var(--text-mid);
 }
-.bioai-bonuses-card h3,
+
+/* ── Delivery cards ── */
+.bioai-delivery-grid {
+  display: grid; 
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem; 
+  margin-top: 3rem;
+  width: 100%;
+}
+.bioai-delivery-card {
+  border: 1.5px solid var(--border); 
+  border-radius: 14px;
+  padding: 2rem 1.75rem; 
+  background: var(--card-bg);
+  box-shadow: var(--card-shadow);
+  transition: all 0.3s ease; 
+  text-align: left;
+  width: 100%;
+  box-sizing: border-box;
+}
+.bioai-delivery-card:hover { 
+  border-color: var(--forest-mid); transform: translateY(-4px); 
+  box-shadow: var(--card-shadow-hover); 
+}
+.bioai-delivery-head { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem; }
+.bioai-delivery-icon { font-size: 2rem; line-height: 1; flex-shrink: 0; }
 .bioai-delivery-card h3 {
   font-family: 'Playfair Display', serif;
   font-size: 1.08rem; font-weight: 600; color: var(--forest); margin: 0;
 }
+.bioai-delivery-card p {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem; font-weight: 400; line-height: 1.75; color: var(--text-mid);
+}
 
-/* ── Responsive ── */
+/* ── Button styling ── */
+.bioai-section-light .btn-grad,
+.bioai-hero .btn-grad,
+.bioai-page .btn-grad {
+  background: #1B4332;
+  color: #fff;
+  box-shadow: 0 2px 16px rgba(27,67,50,0.28);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  padding: 0.75rem 1.75rem;
+  border-radius: 8px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.25s;
+}
+
+.bioai-section-light .btn-grad:hover,
+.bioai-hero .btn-grad:hover,
+.bioai-page .btn-grad:hover {
+  background: #153829;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(27,67,50,0.36);
+}
+
+.bioai-section-dark .btn-grad {
+  background: #fff;
+  color: #1B4332;
+  box-shadow: 0 2px 16px rgba(255,255,255,0.2);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  padding: 0.75rem 1.75rem;
+  border-radius: 8px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.25s;
+}
+
+.bioai-section-dark .btn-grad:hover {
+  background: #F8F8F8;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(255,255,255,0.3);
+}
+
+.bioai-section-light .btn-light,
+.bioai-hero .btn-light,
+.bioai-page .btn-light {
+  background: #fff;
+  color: #1B4332;
+  border: 1.5px solid #1B4332;
+  box-shadow: 0 2px 12px rgba(27,67,50,0.15);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  padding: 0.75rem 1.75rem;
+  border-radius: 8px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: all 0.25s;
+}
+
+.bioai-section-light .btn-light:hover,
+.bioai-hero .btn-light:hover,
+.bioai-page .btn-light:hover {
+  background: #F8F8F8;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(27,67,50,0.25);
+}
+
+/* ── Tablet (max 1024px) ── */
+@media (max-width: 1024px) {
+  .bioai-glance-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+  }
+  
+  .bioai-bonus-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .bioai-bonuses-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .about-layout {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    text-align: center;
+  }
+  
+  .about-content {
+    text-align: center;
+  }
+  
+  .timeline-line {
+    display: none;
+  }
+  
+  .bioai-container {
+    padding: 0 30px;
+  }
+}
+
+/* ── Mobile (max 768px) ── */
 @media (max-width: 768px) {
-  .bioai-hero-stats { flex-direction: column; gap: 1rem; }
-  .bioai-glance-grid, .bioai-audience-grid, .bioai-curriculum-grid,
-  .bioai-bonus-grid, .bioai-bonuses-grid, .bioai-delivery-grid { grid-template-columns: 1fr; }
-  .bioai-section-light, .bioai-section-warm { padding: 70px 5vw; }
+  .bioai-hero { 
+    padding: 80px 0 60px;
+    min-height: 70vh;
+  }
+  
+  .bioai-hero-inner {
+    padding: 0 20px;
+  }
+  
+  .bioai-hero h1 {
+    font-size: clamp(1.8rem, 7vw, 2.5rem);
+    margin-bottom: 1rem;
+  }
+  
+  .bioai-hero-sub {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+  }
+  
+  .bioai-hero-stats { 
+    flex-direction: column; 
+    gap: 0.75rem;
+    padding: 1.25rem 0;
+    margin-bottom: 2rem;
+  }
+  
+  .bioai-stat {
+    font-size: 0.75rem;
+  }
+
+  .bioai-section-light, 
+  .bioai-section-warm, 
+  .bioai-section-dark { 
+    padding: 50px 0;
+  }
+
+  .bioai-container {
+    padding: 0 20px;
+  }
+
+  /* All grids → single column on mobile */
+  .bioai-glance-grid,
+  .bioai-audience-grid,
+  .bioai-curriculum-grid,
+  .bioai-bonus-grid,
+  .bioai-bonuses-grid,
+  .bioai-delivery-grid { 
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+
+  .bioai-glance-card,
+  .bioai-audience-card,
+  .bioai-curriculum-card,
+  .bioai-bonus-card,
+  .bioai-bonuses-card,
+  .bioai-delivery-card {
+    padding: 1.25rem 1rem;
+    max-width: 100%;
+  }
+
+  .bioai-audience-num {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .h2 {
+    font-size: clamp(1.5rem, 5vw, 2.2rem);
+    line-height: 1.2;
+  }
+  
+  .lead {
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+  
+  .eyebrow {
+    font-size: 0.65rem;
+  }
+
+  .bioai-curriculum-head {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  
+  .bioai-week-badge {
+    font-size: 0.55rem;
+    padding: 3px 8px;
+  }
+  
+  .bioai-bonuses-head {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  
+  .bioai-bonuses-num {
+    font-size: 0.55rem;
+    padding: 3px 8px;
+  }
+
+  /* About section mobile adjustments */
+  .about-layout {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    text-align: center;
+  }
+  
+  .ngs-pipeline {
+    gap: 1rem;
+  }
+  
+  .step-node {
+    font-size: 0.8rem;
+    padding: 8px 12px;
+    min-width: 60px;
+  }
+  
+  .step-arrow {
+    width: 30px;
+    margin: 0 10px;
+  }
+  
+  /* Delivery images mobile */
+  .bioai-delivery-image {
+    height: 140px;
+    margin-bottom: 1rem;
+  }
+  
+  /* Bonus cards mobile */
+  .bioai-bonus-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+  }
+  
+  /* Hero actions mobile */
+  .bioai-hero-actions {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: stretch;
+  }
+  
+  .bioai-hero-actions .btn-grad,
+  .bioai-hero-actions .btn-light {
+    width: 100%;
+    justify-content: center;
+    padding: 0.875rem 1.5rem;
+  }
+  
+  /* CTA section mobile */
+  .cta-section .bioai-container > div {
+    position: relative;
+    z-index: 2;
+  }
+  
+  .pulse-orb {
+    width: 250px;
+    height: 250px;
+  }
+}
+
+/* ── Small Mobile (max 480px) ── */
+@media (max-width: 480px) {
+  .bioai-hero {
+    padding: 60px 0 40px;
+  }
+  
+  .bioai-hero-inner {
+    padding: 0 16px;
+  }
+  
+  .bioai-hero h1 {
+    font-size: clamp(1.6rem, 8vw, 2rem);
+  }
+  
+  .bioai-hero-sub {
+    font-size: 0.85rem;
+  }
+  
+  .bioai-section-light,
+  .bioai-section-warm,
+  .bioai-section-dark {
+    padding: 40px 0;
+  }
+  
+  .bioai-container {
+    padding: 0 16px;
+  }
+  
+  .bioai-glance-card,
+  .bioai-audience-card,
+  .bioai-curriculum-card,
+  .bioai-bonus-card,
+  .bioai-bonuses-card,
+  .bioai-delivery-card {
+    padding: 1rem 0.875rem;
+  }
+  
+  .h2 {
+    font-size: clamp(1.4rem, 6vw, 1.8rem);
+  }
+  
+  .lead {
+    font-size: 0.85rem;
+  }
+  
+  .bioai-desc {
+    font-size: 0.85rem;
+  }
+  
+  .bioai-glance-card h3,
+  .bioai-audience-card h3,
+  .bioai-curriculum-card h3,
+  .bioai-bonuses-card h3,
+  .bioai-delivery-card h3 {
+    font-size: 0.95rem;
+  }
+  
+  .bioai-glance-card p,
+  .bioai-audience-card p,
+  .bioai-curriculum-card p,
+  .bioai-bonus-card p,
+  .bioai-bonuses-card p,
+  .bioai-delivery-card p {
+    font-size: 0.8rem;
+    line-height: 1.6;
+  }
+  
+  /* NGS Pipeline mobile */
+  .pipeline-step {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .step-arrow {
+    width: 20px;
+    height: 20px;
+    background: var(--gold);
+    border-radius: 50%;
+    margin: 0;
+  }
+  
+  .step-arrow::after {
+    display: none;
+  }
+  
+  /* Contact info mobile */
+  .bioai-contact-info {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  /* Delivery images smaller on mobile */
+  .bioai-delivery-image {
+    height: 120px;
+  }
+  
+  /* Bonus icons smaller */
+  .bioai-bonus-icon {
+    width: 36px;
+    height: 36px;
+    font-size: 1rem;
+  }
+}
+
+/* ── Extra Small Mobile (max 360px) ── */
+@media (max-width: 360px) {
+  .bioai-hero-inner {
+    padding: 0 12px;
+  }
+  
+  .bioai-container {
+    padding: 0 12px;
+  }
+  
+  .bioai-hero h1 {
+    font-size: 1.5rem;
+  }
+  
+  .h2 {
+    font-size: 1.3rem;
+  }
+  
+  .bioai-glance-card,
+  .bioai-audience-card,
+  .bioai-curriculum-card,
+  .bioai-bonus-card,
+  .bioai-bonuses-card,
+  .bioai-delivery-card {
+    padding: 0.875rem 0.75rem;
+  }
 }
