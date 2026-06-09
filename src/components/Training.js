@@ -34,11 +34,41 @@ function Training() {
                 <div className="bc-hook">Biology-first. Zero coding anxiety. Maximum impact.</div>
                 <p className="bc-desc">Master AI-powered tools for drug discovery, protein analysis, literature mining, and genomics — entirely through visual no-code platforms. Built for UG and PG students with zero programming background who want AI on their CV before graduation.</p>
                 <div className="bc-chips">
-                  <span className="chip">AI Drug Discovery</span>
-                  <span className="chip">Protein Folding Tools</span>
-                  <span className="chip">Literature AI Mining</span>
-                  <span className="chip">No Coding Needed</span>
-                  <span className="chip">Visual Platforms</span>
+                  <motion.span 
+                    className="chip"
+                    whileHover={{ scale: 1.05, y: -2 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    AI Drug Discovery
+                  </motion.span>
+                  <motion.span 
+                    className="chip"
+                    whileHover={{ scale: 1.05, y: -2 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    Protein Folding Tools
+                  </motion.span>
+                  <motion.span 
+                    className="chip"
+                    whileHover={{ scale: 1.05, y: -2 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    Literature AI Mining
+                  </motion.span>
+                  <motion.span 
+                    className="chip"
+                    whileHover={{ scale: 1.05, y: -2 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    No Coding Needed
+                  </motion.span>
+                  <motion.span 
+                    className="chip"
+                    whileHover={{ scale: 1.05, y: -2 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    Visual Platforms
+                  </motion.span>
                 </div>
               </div>
               <div className="bc-foot">
@@ -62,9 +92,27 @@ function Training() {
                 <div className="bc-hook">Code meets biology. Real data, real results.</div>
                 <p className="bc-desc">Python and R applied to actual genomic datasets, EHR data, and imaging pipelines. Weekly live sessions, virtual simulations, and a portfolio project that impresses every interviewer.</p>
                 <div className="bc-chips">
-                  <span className="chip">Python / R</span>
-                  <span className="chip">ML in Genomics</span>
-                  <span className="chip">Virtual Lab</span>
+                  <motion.span 
+                    className="chip"
+                    whileHover={{ scale: 1.05, y: -2 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    Python / R
+                  </motion.span>
+                  <motion.span 
+                    className="chip"
+                    whileHover={{ scale: 1.05, y: -2 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    ML in Genomics
+                  </motion.span>
+                  <motion.span 
+                    className="chip"
+                    whileHover={{ scale: 1.05, y: -2 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    Virtual Lab
+                  </motion.span>
                 </div>
               </div>
               <div className="bc-foot">

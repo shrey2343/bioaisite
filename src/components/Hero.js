@@ -107,9 +107,12 @@ function Hero() {
           initial={prefersReduced ? { opacity: 0 } : { opacity: 0, y: -16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+          whileHover={{ scale: 1.02 }}
         >
           <span className="blink-dot"></span>
-          A Deepiotics Initiative &nbsp;·&nbsp; AI × Biotech Intelligence Platform
+          <span className="eyebrow-text">A Deepiotics Initiative</span>
+          <span className="eyebrow-separator">&nbsp;·&nbsp;</span>
+          <span className="eyebrow-text-alt">AI × Biotech Intelligence Platform</span>
         </motion.div>
 
         {/* Headline with word-by-word reveal */}

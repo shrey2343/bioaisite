@@ -349,6 +349,7 @@ body::before { display: none; }
   border: 1.5px solid rgba(201,151,76,0.3);
   display: flex; align-items: center; justify-content: center;
   color: var(--gold-light);
+  font-size: 36px;
   transition: all 0.3s ease;
 }
 .who-card-icon svg { width: 28px; height: 28px; }
@@ -487,6 +488,10 @@ body::before { display: none; }
   .who-section { padding: 70px 4vw; }
   .who-header { margin-bottom: 3rem; }
   .who-paths { margin-bottom: 2.5rem; }
+  
+  /* Resource cards for tablet */
+  .resource-cards { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+  .resource-card:last-child { grid-column: span 2; max-width: 600px; margin: 0 auto; width: 100%; }
 }
 
 @media (max-width: 768px) {
