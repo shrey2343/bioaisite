@@ -25,10 +25,6 @@ const fadeUp = {
   hidden: { opacity: 0, y: 36 },
   show:   { opacity: 1, y: 0, transition: { duration: 0.65, ease: [0.22, 1, 0.36, 1] } },
 };
-const fadeLeft = {
-  hidden: { opacity: 0, x: -36 },
-  show:   { opacity: 1, x: 0, transition: { duration: 0.65, ease: [0.22, 1, 0.36, 1] } },
-};
 
 /* Scroll-triggered stagger wrapper */
 function StaggerSection({ children, className }) {

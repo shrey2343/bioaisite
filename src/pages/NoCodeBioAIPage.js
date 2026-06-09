@@ -1,5 +1,5 @@
-import React, { useRef } from 'react';
-import { motion, useReducedMotion, useInView } from 'framer-motion';
+import React from 'react';
+import { motion, useReducedMotion } from 'framer-motion';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
 import ParticleCanvas from '../components/ParticleCanvas';
