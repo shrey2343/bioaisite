@@ -6,6 +6,18 @@
   background: var(--bg); 
   min-height: 100vh; 
   width: 100%;
+  /* overflow-x hidden removed — breaks sticky nav */
+}
+
+/* Sticky nav fix for this page */
+.bioai-page nav,
+.bioai-page .nav-wrapper {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 200 !important;
+}
+
+.bioai-page > section {
   overflow-x: hidden;
 }
 

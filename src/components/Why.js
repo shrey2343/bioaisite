@@ -13,7 +13,7 @@ const cards = [
 
 function Why() {
   return (
-    <section id="about">
+    <section id="about" className="section-light">
       <div className="sw">
         <div className="center">
           <AnimateIn direction="up" delay={0}>

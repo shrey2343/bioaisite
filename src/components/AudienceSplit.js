@@ -3,7 +3,7 @@ import AnimateIn from './AnimateIn';
 
 function AudienceSplit() {
   return (
-    <section id="audience">
+    <section id="audience" className="section-light">
       <div className="sw">
         <div className="center" style={{marginBottom:'3rem'}}>
           <AnimateIn direction="up" delay={0}>

@@ -12,7 +12,7 @@ const regions = [
 
 function Global() {
   return (
-    <section id="global">
+    <section id="global" className="section-light">
       <div className="sw">
         <div className="center">
           <AnimateIn direction="up" delay={0}>

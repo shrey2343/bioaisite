@@ -18,7 +18,7 @@ function Workshop() {
   };
 
   return (
-    <section id="workshop">
+    <section id="workshop" className="section-light">
       <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '100px 4vw' }}>
         <div className="center">
           <div className="eyebrow fi">Free Resources</div>

@@ -147,7 +147,7 @@ function BioAILabPage() {
                     transition={{ duration: 0.2 }}>
                     {step}
                   </motion.div>
-                  {i < 4 && <div className="step-arrow"></div>}
+                  <div className="step-arrow"></div>
                 </motion.div>
               ))}
             </div>
