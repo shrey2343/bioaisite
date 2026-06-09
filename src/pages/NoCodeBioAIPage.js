@@ -1,23 +1,40 @@
-import React from 'react';
+import React, { useRef } from 'react';
+import { motion, useReducedMotion, useInView } from 'framer-motion';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
 import ParticleCanvas from '../components/ParticleCanvas';
 import useScrollAnimation from '../hooks/useScrollAnimation';
 import './NoCodeBioAIPage.css';
 
+const heroBlobs = [
+  { style: { width: 500, height: 500, top: '-60px', left: '-80px', background: '#86efac', opacity: 0.30 }, animate: { x: [0, 30, -10, 0], y: [0, -40, 20, 0] }, duration: 18 },
+  { style: { width: 400, height: 400, top: '-40px', right: '-60px', background: '#4ade80', opacity: 0.20 }, animate: { x: [0, -25, 15, 0], y: [0, 30, -20, 0] }, duration: 22 },
+  { style: { width: 350, height: 350, bottom: '-40px', left: '50%', transform: 'translateX(-50%)', background: '#bbf7d0', opacity: 0.40 }, animate: { x: [0, 20, -30, 0], y: [0, -20, 30, 0] }, duration: 15 },
+  { style: { width: 300, height: 300, bottom: '-20px', left: '-40px', background: '#6ee7b7', opacity: 0.25 }, animate: { x: [0, -15, 25, 0], y: [0, 25, -15, 0] }, duration: 20 },
+  { style: { width: 250, height: 250, top: '20px', left: '50%', transform: 'translateX(-50%)', background: '#a7f3d0', opacity: 0.35 }, animate: { x: [0, 20, -10, 0], y: [0, -30, 10, 0] }, duration: 25 },
+];
+
 function NoCodeBioAIPage() {
   useScrollAnimation();
+  const prefersReduced = useReducedMotion();
 
   return (
     <div className="nocode-page">
-      <ParticleCanvas />
       <Navigation />
       
       {/* Hero Section */}
-      <section className="nocode-hero">
-        <div className="orb orb1"></div>
-        <div className="orb orb2"></div>
-        <div className="orb orb3"></div>
+      <section className="nocode-hero nocode-hero-light">
+        {/* Light animated blob background */}
+        <div aria-hidden="true" style={{ position: 'absolute', inset: 0, zIndex: 0, pointerEvents: 'none', backgroundColor: '#f0faf4', overflow: 'hidden' }}>
+          {heroBlobs.map((blob, i) => (
+            <motion.div key={i} aria-hidden="true"
+              style={{ position: 'absolute', borderRadius: '9999px', filter: 'blur(80px)', willChange: 'transform', ...blob.style }}
+              animate={prefersReduced ? {} : blob.animate}
+              transition={{ duration: blob.duration, ease: 'easeInOut', repeat: Infinity, repeatType: 'loop' }}
+            />
+          ))}
+        </div>
+        <ParticleCanvas />
         <div className="nocode-hero-inner">
           <div className="nocode-badge fi">
             <span className="blink-dot"></span>

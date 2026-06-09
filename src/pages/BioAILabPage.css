@@ -27,6 +27,20 @@
 }
 .bioai-hero::before { display: none; }
 
+/* Light hero variant — same as homepage */
+.bioai-hero.bioai-hero-light {
+  background: #f0faf4 !important;
+  background-image: none !important;
+}
+
+.bioai-hero.bioai-hero-light #hero-canvas {
+  display: block;
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  opacity: 0.55;
+}
+
 /* Simplified background elements */
 .hero-svg-bg {
   position: absolute;
@@ -82,7 +96,7 @@
   max-width: 860px; 
   margin: 0 auto; 
   position: relative; 
-  z-index: 2; 
+  z-index: 10; 
   padding: 0 20px;
   width: 100%;
 }
@@ -155,6 +169,42 @@
 
 .who-section {
   position: relative;
+}
+
+/* ── who-section card text: dark background, white text ── */
+.who-section .bioai-audience-card {
+  background: rgba(255,255,255,0.08);
+  border: 1.5px solid rgba(255,255,255,0.15);
+}
+
+.who-section .bioai-audience-num {
+  background: var(--grad);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.who-section .bioai-audience-card h3 {
+  color: #ffffff !important;
+}
+
+.who-section .bioai-audience-card p {
+  color: rgba(255,255,255,0.8) !important;
+}
+
+.who-section .eyebrow {
+  color: var(--gold-light) !important;
+}
+
+.who-section .h2 {
+  color: #ffffff !important;
+}
+
+.who-section .h2 .gt {
+  background: var(--grad);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .hexagon-pattern {
@@ -345,8 +395,8 @@
 .bioai-section-dark .bioai-bonus-card,
 .bioai-section-dark .bioai-bonuses-card,
 .bioai-section-dark .bioai-delivery-card {
-  border: 1.5px solid rgba(255,255,255,0.15);
-  background: rgba(255,255,255,0.05);
+  border: 1.5px solid rgba(255,255,255,0.18);
+  background: rgba(255,255,255,0.10);
   box-shadow: 0 4px 24px rgba(0,0,0,0.1);
 }
 
@@ -367,6 +417,13 @@
 .bioai-section-dark .bioai-bonuses-card h3,
 .bioai-section-dark .bioai-delivery-card h3 {
   color: #fff;
+}
+
+.bioai-section-dark .bioai-audience-num {
+  background: var(--grad);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .bioai-section-dark .bioai-glance-card p,

@@ -16,7 +16,21 @@
     radial-gradient(circle at 75% 65%, rgba(27,67,50,0.05) 0%, transparent 50%);
 }
 .nocode-hero::before { display: none; }
-.nocode-hero-inner { max-width: 860px; margin: 0 auto; position: relative; z-index: 2; }
+.nocode-hero-inner { max-width: 860px; margin: 0 auto; position: relative; z-index: 10; }
+
+/* Light hero variant — same as homepage */
+.nocode-hero.nocode-hero-light {
+  background: #f0faf4 !important;
+  background-image: none !important;
+}
+
+.nocode-hero.nocode-hero-light #hero-canvas {
+  display: block;
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  opacity: 0.55;
+}
 
 .nocode-badge {
   display: inline-flex; align-items: center; gap: 10px;

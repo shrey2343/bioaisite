@@ -18,7 +18,7 @@ function ParticleCanvas() {
 
     function init() {
       pts = [];
-      const n = Math.floor(W * H / 18000);
+      const n = Math.floor(W * H / 12000);
       for (let i = 0; i < n; i++) {
         pts.push({
           x: Math.random() * W,
@@ -44,11 +44,11 @@ function ParticleCanvas() {
           const dx = pts[j].x - pts[i].x;
           const dy = pts[j].y - pts[i].y;
           const d = Math.sqrt(dx * dx + dy * dy);
-          if (d < 130) {
-            const a = (1 - d / 130) * 0.18;
+          if (d < 150) {
+            const a = (1 - d / 150) * 0.22;
             ctx.beginPath();
-            ctx.strokeStyle = `rgba(175,169,236,${a})`;
-            ctx.lineWidth = 0.5;
+            ctx.strokeStyle = `rgba(20,83,45,${a})`;
+            ctx.lineWidth = 0.6;
             ctx.moveTo(pts[i].x, pts[i].y);
             ctx.lineTo(pts[j].x, pts[j].y);
             ctx.stroke();
@@ -56,7 +56,7 @@ function ParticleCanvas() {
         }
         ctx.beginPath();
         ctx.arc(pts[i].x, pts[i].y, pts[i].r, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(175,169,236,0.45)';
+        ctx.fillStyle = 'rgba(20,83,45,0.35)';
         ctx.fill();
       }
       animationId = requestAnimationFrame(draw);

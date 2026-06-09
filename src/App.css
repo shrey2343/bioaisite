@@ -261,7 +261,7 @@ section { background:var(--bg); }
 
 /* Specific section backgrounds for proper alternating colors */
 .hero { background:var(--bg) !important; padding-bottom:40px !important; }
-.who-section { background:var(--bg2) !important; padding:40px 0 !important; }
+.who-section { padding:40px 0 !important; }
 #audience { background:var(--bg) !important; }
 #training { background:var(--bg2) !important; }
 #workshop { background:var(--bg-dark) !important; }
@@ -1021,3 +1021,276 @@ footer {
 
 /* grad2 fallback for inline styles on sub-pages */
 :root { --grad2: var(--grad); }
+
+/* =========================================
+   HERO DARK THEME (framer-motion orbs)
+   ========================================= */
+.hero.hero-dark {
+  background: #050d0a !important;
+  min-height: 90vh;
+}
+
+/* Override the light ::before overlay for dark hero */
+.hero.hero-dark::before {
+  background: none !important;
+}
+
+.hero-eyebrow--dark {
+  color: rgba(0, 255, 135, 0.9) !important;
+  background: rgba(0, 255, 135, 0.08) !important;
+  border: 1px solid rgba(0, 255, 135, 0.2) !important;
+}
+
+.hero-eyebrow--dark .blink-dot {
+  background: #00ff87 !important;
+}
+
+.hero-h1-dark {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(3rem, 6vw, 5.5rem);
+  font-weight: 600;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  color: #e8f5e9;
+  margin-bottom: 1.6rem;
+}
+
+.hero-h1-dark .grad-text {
+  background: linear-gradient(135deg, #00ff87 0%, #0ffd20 50%, #00e676 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  background-size: 200% auto;
+  animation: shimmer 4s linear infinite;
+}
+
+.hero-sub--dark {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 400;
+  line-height: 1.85;
+  color: rgba(232, 245, 233, 0.75);
+  max-width: 600px;
+  margin: 0 auto 2.5rem;
+}
+
+.btn-hero-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  padding: 0.85rem 2rem;
+  border-radius: 8px;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.25s;
+  background: linear-gradient(135deg, #00c853 0%, #00e676 100%);
+  color: #052010;
+  box-shadow: 0 4px 24px rgba(0, 200, 83, 0.35);
+}
+
+.btn-hero-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(0, 200, 83, 0.5);
+  background: linear-gradient(135deg, #00e676 0%, #0ffd20 100%);
+}
+
+/* =========================================
+   HERO LIGHT THEME (framer-motion blobs)
+   ========================================= */
+.hero.hero-light {
+  background: #f0faf4 !important;
+  min-height: 90vh;
+}
+
+/* Remove the default light overlay for light hero */
+.hero.hero-light::before {
+  background: none !important;
+}
+
+.hero-eyebrow--light {
+  color: #166534 !important;
+  background: rgba(20, 83, 45, 0.07) !important;
+  border: 1px solid rgba(20, 83, 45, 0.18) !important;
+}
+
+.hero-eyebrow--light .blink-dot {
+  background: #b45309 !important;
+}
+
+.hero-h1-light {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(3rem, 6vw, 5.5rem);
+  font-weight: 600;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  color: #14532d;
+  margin-bottom: 1.6rem;
+}
+
+.hero-h1-light .grad-text {
+  background: linear-gradient(135deg, #b45309 0%, #92400e 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  background-size: 200% auto;
+  animation: shimmer 4s linear infinite;
+}
+
+.hero-sub--light {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 400;
+  line-height: 1.85;
+  color: #374151;
+  max-width: 600px;
+  margin: 0 auto 2.5rem;
+}
+
+/* ParticleCanvas override for dark hero */
+.hero.hero-dark #hero-canvas {
+  display: block;
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  opacity: 0.35;
+}
+
+/* ParticleCanvas override for light hero */
+.hero.hero-light #hero-canvas {
+  display: block;
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  opacity: 0.55;
+}
+
+/* =========================================
+   NAV SCROLL STATE
+   ========================================= */
+nav,
+.nav-wrapper {
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 5vw;
+  height: 80px;
+  background: rgba(250, 249, 246, 0.96);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+  transition: background 0.3s ease, border-color 0.3s ease, backdrop-filter 0.3s ease;
+}
+
+.nav-wrapper.nav-scrolled {
+  background: rgba(0, 0, 0, 0.45) !important;
+  backdrop-filter: blur(12px) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Nav links text readable on dark scrolled state */
+.nav-wrapper.nav-scrolled .nav-links a,
+.nav-wrapper.nav-scrolled .nav-right a {
+  color: rgba(255, 255, 255, 0.85);
+}
+.nav-wrapper.nav-scrolled .nav-links a:hover,
+.nav-wrapper.nav-scrolled .nav-right a:hover {
+  color: #00ff87;
+}
+.nav-wrapper.nav-scrolled .nav-cta {
+  background: rgba(0, 200, 83, 0.85);
+  color: #fff;
+  border: none;
+}
+.nav-wrapper.nav-scrolled .nav-whatsapp {
+  border-color: rgba(255, 255, 255, 0.2);
+}
+.nav-wrapper.nav-scrolled .logo-img {
+  filter: brightness(0) invert(1);
+}
+
+/* Keep original nav animation via framer-motion (remove CSS animation) */
+nav { animation: none !important; opacity: 1 !important; }
+
+/* =========================================
+   ANIMATEIN — grid/flex wrappers
+   When AnimateIn wraps a direct grid/flex child,
+   the motion.div wrapper needs to participate in layout
+   ========================================= */
+.audience-wrap > div {
+  display: flex;
+  flex-direction: column;
+}
+
+.audience-wrap > div > .ap {
+  flex: 1;
+}
+
+.training-two-cards > div {
+  display: flex;
+  flex-direction: column;
+}
+
+.training-two-cards > div > .training-card {
+  flex: 1;
+}
+
+.why-grid > div {
+  display: flex;
+  flex-direction: column;
+}
+
+.why-grid > div > .why-card {
+  flex: 1;
+}
+
+.tgrid > div {
+  display: flex;
+  flex-direction: column;
+}
+
+.tgrid > div > .tcard {
+  flex: 1;
+}
+
+.global-grid > div {
+  display: flex;
+  flex-direction: column;
+}
+
+.global-grid > div > .gc {
+  flex: 1;
+}
+
+.who-paths > div {
+  display: flex;
+  flex-direction: column;
+}
+
+.who-paths > div > .who-path-card {
+  flex: 1;
+}
+
+.who-stats > div {
+  display: flex;
+  flex-direction: column;
+}
+
+.who-stats > div > .who-stat {
+  flex: 1;
+}
+
+.sstrip > div {
+  display: flex;
+  flex-direction: column;
+}
+
+.sstrip > div > .srow {
+  flex: 1;
+}
