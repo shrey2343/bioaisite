@@ -38,7 +38,11 @@ function NoCodeBioAIPage() {
         <div className="nocode-hero-inner">
           <div className="nocode-badge fi">
             <span className="blink-dot"></span>
-            Intensive · 8 Weeks · Certificate Program
+            <span className="badge-text">Intensive</span>
+            <span className="badge-separator">·</span>
+            <span className="badge-text">8 Weeks</span>
+            <span className="badge-separator">·</span>
+            <span className="badge-highlight">Certificate Program</span>
           </div>
           
           <h1 className="fi">
