@@ -1,50 +1,114 @@
 /* =========================================
-   BIO-AI LAB PAGE — Website Theme Match
+   BIO-AI LAB PAGE — Enhanced Animations
    ========================================= */
 
-.bioai-page { 
-  background: var(--bg); 
-  min-height: 100vh; 
-  width: 100%;
-  /* overflow-x hidden removed — breaks sticky nav */
+/* ── Keyframe Animations ── */
+@keyframes shimmerFlow {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+@keyframes pulseBorder {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(201,151,76,0); }
+  50%       { box-shadow: 0 0 0 8px rgba(201,151,76,0.12); }
+}
+@keyframes floatY {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-10px); }
+}
+@keyframes rotateSlow {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+@keyframes pulseOrb {
+  0%, 100% { transform: translate(-50%,-50%) scale(1);   opacity: 0.6; }
+  50%       { transform: translate(-50%,-50%) scale(1.35); opacity: 0.3; }
+}
+@keyframes pipelinePulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(201,151,76,0.0); }
+  50%       { box-shadow: 0 0 18px 4px rgba(201,151,76,0.35); }
+}
+@keyframes arrowFlow {
+  0%   { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+@keyframes scanLine {
+  0%   { top: 0%; opacity: 0; }
+  10%  { opacity: 1; }
+  90%  { opacity: 1; }
+  100% { top: 100%; opacity: 0; }
+}
+@keyframes blink {
+  0%,100% { opacity: 1; }
+  50%      { opacity: 0.3; }
+}
+@keyframes gradientShift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+@keyframes cardGlow {
+  0%, 100% { box-shadow: 0 4px 24px rgba(0,0,0,0.08); }
+  50%       { box-shadow: 0 8px 40px rgba(27,67,50,0.18), 0 0 0 1px rgba(201,151,76,0.12); }
+}
+@keyframes tickerSlide {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+@keyframes numberPopIn {
+  0%   { transform: scale(0.6); opacity: 0; }
+  70%  { transform: scale(1.08); }
+  100% { transform: scale(1); opacity: 1; }
+}
+@keyframes hueRotate {
+  from { filter: hue-rotate(0deg); }
+  to   { filter: hue-rotate(30deg); }
+}
+@keyframes dotWave {
+  0%, 80%, 100% { transform: scaleY(0.4); opacity: 0.4; }
+  40%           { transform: scaleY(1.0); opacity: 1; }
+}
+@keyframes borderMarch {
+  0%   { background-position: 0 0, 100% 0, 100% 100%, 0 100%; }
+  100% { background-position: 100% 0, 100% 100%, 0 100%, 0 0; }
 }
 
-/* Sticky nav fix for this page */
+/* =========================================
+   BASE PAGE
+   ========================================= */
+.bioai-page {
+  background: var(--bg);
+  min-height: 100vh;
+  width: 100%;
+}
 .bioai-page nav,
 .bioai-page .nav-wrapper {
   position: sticky !important;
   top: 0 !important;
   z-index: 200 !important;
 }
+.bioai-page > section { overflow-x: hidden; }
 
-.bioai-page > section {
-  overflow-x: hidden;
-}
-
-/* ── Hero ── */
+/* =========================================
+   HERO
+   ========================================= */
 .bioai-hero {
   min-height: 85vh;
-  display: flex; 
+  display: flex;
   align-items: center;
   justify-content: center;
   padding: 120px 0 100px;
-  position: relative; 
-  overflow: hidden; 
+  position: relative;
+  overflow: hidden;
   text-align: center;
   background: var(--bg);
-  background-image:
-    radial-gradient(circle at 20% 30%, rgba(201,151,76,0.08) 0%, transparent 55%),
-    radial-gradient(circle at 80% 70%, rgba(27,67,50,0.05) 0%, transparent 50%);
   width: 100%;
 }
 .bioai-hero::before { display: none; }
 
-/* Light hero variant — same as homepage */
 .bioai-hero.bioai-hero-light {
   background: #f0faf4 !important;
   background-image: none !important;
 }
-
 .bioai-hero.bioai-hero-light #hero-canvas {
   display: block;
   position: absolute;
@@ -53,70 +117,214 @@
   opacity: 0.55;
 }
 
-/* Simplified background elements */
+/* Animated mesh grid overlay */
+.bioai-hero.bioai-hero-light::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(27,67,50,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(27,67,50,0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 40%, transparent 100%);
+}
+
+.bioai-hero-inner {
+  max-width: 860px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 10;
+  padding: 0 20px;
+  width: 100%;
+}
+
+/* Animated eyebrow badge */
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(27,67,50,0.07);
+  border: 1px solid rgba(27,67,50,0.15);
+  border-radius: 100px;
+  padding: 6px 16px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--forest-mid);
+  margin-bottom: 1.5rem;
+  backdrop-filter: blur(4px);
+  transition: border-color 0.3s, background 0.3s;
+}
+.hero-eyebrow:hover {
+  background: rgba(27,67,50,0.12);
+  border-color: rgba(201,151,76,0.4);
+}
+
+.blink-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #4ade80;
+  box-shadow: 0 0 6px rgba(74,222,128,0.8);
+  animation: blink 1.8s ease-in-out infinite;
+  flex-shrink: 0;
+}
+
+.bioai-hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.8rem, 6vw, 5.5rem);
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--forest);
+  margin-bottom: 1.5rem;
+}
+
+/* Shimmer gradient text */
+.grad-text {
+  background: linear-gradient(
+    135deg,
+    var(--forest) 0%,
+    var(--forest-mid) 30%,
+    #c9974c 50%,
+    var(--forest-mid) 70%,
+    var(--forest) 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmerFlow 4s linear infinite;
+}
+
+.bioai-hero-sub {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.08rem;
+  font-weight: 400;
+  line-height: 1.8;
+  color: var(--text-mid);
+  max-width: 680px;
+  margin: 0 auto 2.5rem;
+}
+
+/* Stats bar with shimmer */
+.bioai-hero-stats {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 1.75rem 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 2.5rem;
+}
+.bioai-stat {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--forest-mid);
+  letter-spacing: 0.03em;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: color 0.25s;
+}
+.bioai-stat::before {
+  content: '▸';
+  color: #c9974c;
+  font-size: 0.7rem;
+}
+.bioai-stat:hover { color: #c9974c; }
+
+.bioai-hero-actions {
+  display: flex;
+  gap: 1.25rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* =========================================
+   FLOATING DNA ORBS — hero bg deco
+   ========================================= */
 .hero-svg-bg {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
   opacity: 0.2;
   z-index: 1;
   pointer-events: none;
 }
 
-.dna-animation {
+/* =========================================
+   SECTION BASES
+   ========================================= */
+.bioai-section-light,
+.bioai-section-warm,
+.bioai-section-dark {
   width: 100%;
-  height: 100%;
+  padding: 90px 0;
+  position: relative;
+  box-sizing: border-box;
+}
+.bioai-page > section { width: 100%; display: block; }
+.bioai-section-light { background: var(--bg);      color: var(--text); }
+.bioai-section-warm  { background: var(--bg2);     color: var(--text); }
+.bioai-section-dark  { background: var(--bg-dark); color: var(--text-light); }
+
+/* Subtle divider shimmer between sections */
+.bioai-section-dark + .bioai-section-light::before,
+.bioai-section-light + .bioai-section-dark::before {
+  content: '';
+  display: block;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(201,151,76,0.3), transparent);
   position: absolute;
+  top: 0; left: 10%; right: 10%;
 }
 
-.hero-video-bg {
-  position: absolute;
-  top: 0;
-  left: 0;
+/* ── Container ── */
+.bioai-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
   width: 100%;
-  height: 100%;
-  z-index: 0;
-  overflow: hidden;
+  box-sizing: border-box;
+  text-align: center;
 }
 
-.hero-video-bg video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 0.15;
-  filter: sepia(20%) hue-rotate(80deg);
-}
+/* ── Eyebrow & Headings ── */
+.bioai-section-dark  .eyebrow { color: var(--gold-light); font-weight: 700; }
+.bioai-section-light .eyebrow,
+.bioai-section-warm  .eyebrow { color: var(--forest-mid); font-weight: 700; }
+.bioai-section-dark  .h2      { color: var(--text-light); }
+.bioai-section-light .h2,
+.bioai-section-warm  .h2      { color: var(--forest); }
+.bioai-section-dark  .lead    { color: var(--text-on-dark); }
+.bioai-section-light .lead,
+.bioai-section-warm  .lead    { color: var(--text-mid); }
+.bioai-section-dark  .bioai-desc { color: var(--text-on-dark); }
+.bioai-section-light .bioai-desc,
+.bioai-section-warm  .bioai-desc { color: var(--text-mid); }
 
-.hero-video-fallback {
-  display: none;
-  width: 100%;
-  height: 100%;
+.bioai-section-dark .gt,
+.bioai-section-light .gt,
+.bioai-section-warm  .gt {
+  background: var(--grad);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
-
-.fallback-gradient {
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(circle at center, 
-              rgba(27,67,50,0.08) 0%, 
-              rgba(201,151,76,0.08) 50%, 
-              rgba(27,67,50,0.04) 100%);
-}
-
-.bioai-hero-inner { 
-  max-width: 860px; 
-  margin: 0 auto; 
-  position: relative; 
-  z-index: 10; 
-  padding: 0 20px;
-  width: 100%;
+.bioai-desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem; font-weight: 400; line-height: 1.85;
+  color: var(--text-mid); max-width: 860px; margin: 2rem auto 0;
 }
 
 /* =========================================
-   ABOUT SECTION - NGS Pipeline
+   ABOUT SECTION — NGS Pipeline (Enhanced)
    ========================================= */
-
 .about-layout {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -125,127 +333,385 @@
   margin-top: 3rem;
   text-align: left;
 }
+.about-content { text-align: left; }
 
-.about-content {
-  text-align: left;
-}
-
+/* Pipeline container */
 .ngs-pipeline {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
-  align-items: center;
+  gap: 1.25rem;
+  align-items: flex-start;
+  position: relative;
+  padding: 2rem;
+  background: rgba(201,151,76,0.04);
+  border: 1px solid rgba(201,151,76,0.15);
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+/* Scan-line effect inside pipeline panel */
+.ngs-pipeline::before {
+  content: '';
+  position: absolute;
+  left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(201,151,76,0.5), transparent);
+  animation: scanLine 3.5s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Label for the pipeline panel */
+.ngs-pipeline::after {
+  content: 'NGS PIPELINE';
+  position: absolute;
+  top: 12px; right: 16px;
+  font-size: 0.55rem;
+  font-family: 'Inter', monospace;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: rgba(201,151,76,0.5);
+  pointer-events: none;
 }
 
 .pipeline-step {
   display: flex;
   align-items: center;
   width: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+/* Step index badge */
+.pipeline-step-index {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: rgba(201,151,76,0.15);
+  border: 1px solid rgba(201,151,76,0.3);
+  color: rgba(201,151,76,0.8);
+  font-size: 0.6rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+  flex-shrink: 0;
 }
 
 .step-node {
-  background: rgba(201,151,76,0.15);
-  border: 2px solid var(--gold);
-  border-radius: 12px;
-  padding: 12px 20px;
+  background: rgba(201,151,76,0.10);
+  border: 1.5px solid rgba(201,151,76,0.5);
+  border-radius: 10px;
+  padding: 10px 22px;
   color: var(--gold-light);
-  font-weight: 600;
-  min-width: 80px;
+  font-weight: 700;
+  min-width: 100px;
   text-align: center;
-  font-size: 0.9rem;
+  font-size: 0.88rem;
+  font-family: 'Inter', sans-serif;
+  letter-spacing: 0.04em;
+  position: relative;
+  transition: all 0.3s ease;
+  cursor: default;
+  animation: pipelinePulse 3s ease-in-out infinite;
 }
 
+/* Stagger the pulse animation per step */
+.pipeline-step:nth-child(1) .step-node { animation-delay: 0s; }
+.pipeline-step:nth-child(2) .step-node { animation-delay: 0.6s; }
+.pipeline-step:nth-child(3) .step-node { animation-delay: 1.2s; }
+.pipeline-step:nth-child(4) .step-node { animation-delay: 1.8s; }
+.pipeline-step:nth-child(5) .step-node { animation-delay: 2.4s; }
+
+.step-node:hover {
+  background: rgba(201,151,76,0.25);
+  border-color: var(--gold);
+  transform: scale(1.06) translateX(4px);
+  box-shadow: 0 0 24px rgba(201,151,76,0.4);
+}
+
+/* Animated flowing arrow */
 .step-arrow {
-  width: 40px;
-  height: 3px;
-  background: linear-gradient(to right, var(--gold), var(--forest));
-  margin: 0 20px;
+  flex: 1;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    rgba(201,151,76,0.8) 0%,
+    rgba(201,151,76,0.2) 40%,
+    rgba(201,151,76,0.8) 60%,
+    rgba(27,67,50,0.3) 100%
+  );
+  background-size: 200% 100%;
+  animation: arrowFlow 1.8s linear infinite;
+  margin-left: 12px;
   position: relative;
 }
-
 .step-arrow::after {
   content: '';
   position: absolute;
-  right: -8px;
-  top: -5px;
+  right: -6px;
+  top: -4px;
   width: 0;
   height: 0;
-  border-left: 8px solid var(--forest);
-  border-top: 5px solid transparent;
-  border-bottom: 5px solid transparent;
+  border-left: 7px solid rgba(201,151,76,0.8);
+  border-top: 4px solid transparent;
+  border-bottom: 4px solid transparent;
 }
 
 /* =========================================
-   HEXAGON BACKGROUND PATTERN
+   SECTION TICKER (new: animated stats bar)
    ========================================= */
+.bioai-ticker-wrap {
+  width: 100%;
+  overflow: hidden;
+  background: linear-gradient(135deg, #1b4332 0%, #0f2a1e 100%);
+  padding: 12px 0;
+  border-top: 1px solid rgba(201,151,76,0.2);
+  border-bottom: 1px solid rgba(201,151,76,0.2);
+}
+.bioai-ticker-track {
+  display: flex;
+  gap: 0;
+  width: max-content;
+  animation: tickerSlide 22s linear infinite;
+}
+.bioai-ticker-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 3rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: rgba(201,151,76,0.9);
+  white-space: nowrap;
+  text-transform: uppercase;
+}
+.bioai-ticker-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: rgba(201,151,76,0.5);
+  flex-shrink: 0;
+}
 
-.who-section {
+/* =========================================
+   GLANCE CARDS (Program At a Glance)
+   ========================================= */
+.bioai-glance-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 3rem;
+  width: 100%;
+}
+.bioai-glance-card {
+  border: 1.5px solid var(--border);
+  border-radius: 16px;
+  padding: 2rem 1.75rem;
+  background: var(--card-bg);
+  box-shadow: var(--card-shadow);
+  transition: all 0.35s cubic-bezier(0.22,1,0.36,1);
+  text-align: left;
+  width: 100%;
+  box-sizing: border-box;
   position: relative;
+  overflow: hidden;
+}
+/* Hover spotlight shimmer */
+.bioai-glance-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at var(--mx,50%) var(--my,50%), rgba(201,151,76,0.08) 0%, transparent 65%);
+  opacity: 0;
+  transition: opacity 0.35s;
+  pointer-events: none;
+  z-index: 0;
+}
+.bioai-glance-card:hover::before { opacity: 1; }
+.bioai-glance-card:hover {
+  border-color: rgba(201,151,76,0.5);
+  transform: translateY(-6px) scale(1.01);
+  box-shadow: 0 20px 48px rgba(27,67,50,0.13), 0 0 0 1px rgba(201,151,76,0.15);
+}
+.bioai-glance-head {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  margin-bottom: 0.85rem;
+  position: relative;
+  z-index: 1;
+}
+.bioai-glance-icon {
+  font-size: 2rem;
+  line-height: 1;
+  flex-shrink: 0;
+  transition: transform 0.3s;
+  filter: drop-shadow(0 2px 6px rgba(27,67,50,0.2));
+}
+.bioai-glance-card:hover .bioai-glance-icon {
+  transform: scale(1.2) rotate(-5deg);
+}
+.bioai-glance-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--forest);
+  margin: 0;
+  position: relative;
+  z-index: 1;
+}
+.bioai-glance-card p {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 400;
+  line-height: 1.8;
+  color: var(--text-mid);
+  position: relative;
+  z-index: 1;
 }
 
-/* ── who-section card text: dark background, white text ── */
-.who-section .bioai-audience-card {
-  background: rgba(255,255,255,0.08);
-  border: 1.5px solid rgba(255,255,255,0.15);
-}
-
-.who-section .bioai-audience-num {
-  background: var(--grad);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.who-section .bioai-audience-card h3 {
-  color: #ffffff !important;
-}
-
-.who-section .bioai-audience-card p {
-  color: rgba(255,255,255,0.8) !important;
-}
-
-.who-section .eyebrow {
-  color: var(--gold-light) !important;
-}
-
-.who-section .h2 {
-  color: #ffffff !important;
-}
-
-.who-section .h2 .gt {
-  background: var(--grad);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
+/* =========================================
+   WHO SECTION
+   ========================================= */
+.who-section { position: relative; }
 .hexagon-pattern {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0.06;
-  background-image: 
+  inset: 0;
+  opacity: 0.05;
+  background-image:
     radial-gradient(circle at 20% 80%, rgba(27,67,50,0.2) 0%, transparent 50%),
     radial-gradient(circle at 80% 20%, rgba(27,67,50,0.15) 0%, transparent 50%),
     radial-gradient(circle at 40% 40%, rgba(27,67,50,0.1) 0%, transparent 50%);
   background-size: 60px 60px;
   z-index: 0;
 }
+/* Animated geometric bg for who-section */
+.who-section::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: repeating-linear-gradient(
+    60deg,
+    transparent,
+    transparent 40px,
+    rgba(201,151,76,0.025) 40px,
+    rgba(201,151,76,0.025) 41px
+  );
+  z-index: 0;
+}
+
+.who-section .bioai-container { position: relative; z-index: 1; }
+.who-section .bioai-audience-card {
+  background: rgba(255,255,255,0.07);
+  border: 1.5px solid rgba(255,255,255,0.12);
+  backdrop-filter: blur(8px);
+}
+.who-section .bioai-audience-card:hover {
+  background: rgba(255,255,255,0.12);
+  border-color: rgba(201,151,76,0.5);
+}
+.who-section .bioai-audience-num {
+  background: var(--grad);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.who-section .bioai-audience-card h3 { color: #ffffff !important; }
+.who-section .bioai-audience-card p  { color: rgba(255,255,255,0.75) !important; }
+.who-section .eyebrow  { color: var(--gold-light) !important; }
+.who-section .h2       { color: #ffffff !important; }
+.who-section .h2 .gt   {
+  background: var(--grad);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* =========================================
+   AUDIENCE CARDS
+   ========================================= */
+.bioai-audience-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+  margin-top: 3rem;
+  width: 100%;
+}
+.bioai-audience-card {
+  border: 1.5px solid var(--border);
+  border-radius: 16px;
+  padding: 2rem 1.75rem;
+  background: var(--card-bg);
+  box-shadow: var(--card-shadow);
+  transition: all 0.35s cubic-bezier(0.22,1,0.36,1);
+  text-align: left;
+  width: 100%;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+}
+/* Corner accent */
+.bioai-audience-card::after {
+  content: '';
+  position: absolute;
+  top: 0; right: 0;
+  width: 60px; height: 60px;
+  background: linear-gradient(135deg, transparent 50%, rgba(201,151,76,0.08) 50%);
+  border-radius: 0 16px 0 0;
+  transition: all 0.3s;
+}
+.bioai-audience-card:hover::after {
+  width: 80px; height: 80px;
+  background: linear-gradient(135deg, transparent 50%, rgba(201,151,76,0.15) 50%);
+}
+.bioai-audience-card:hover {
+  border-color: rgba(201,151,76,0.4);
+  transform: translateY(-5px);
+  box-shadow: 0 16px 48px rgba(27,67,50,0.15);
+}
+.bioai-audience-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
+  font-weight: 700;
+  background: var(--grad-forest);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+  margin-bottom: 0.75rem;
+  animation: numberPopIn 0.5s ease-out both;
+}
+.bioai-audience-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--forest);
+  margin-bottom: 0.5rem;
+}
+.bioai-audience-card p {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 400;
+  line-height: 1.8;
+  color: var(--text-mid);
+}
 
 /* =========================================
    CURRICULUM TIMELINE
    ========================================= */
-
-.curriculum-section {
-  position: relative;
-}
-
+.curriculum-section { position: relative; }
 .bioai-curriculum-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+  margin-top: 3rem;
+  width: 100%;
   position: relative;
 }
-
 .timeline-line {
   position: absolute;
   left: 50%;
@@ -255,490 +721,471 @@
   transform: translateX(-50%);
   border-radius: 2px;
   transition: height 0.3s ease;
+  box-shadow: 0 0 8px rgba(201,151,76,0.3);
+}
+.bioai-curriculum-card {
+  border: 1.5px solid var(--border);
+  border-radius: 16px;
+  padding: 2rem 1.75rem;
+  background: var(--card-bg);
+  box-shadow: var(--card-shadow);
+  transition: all 0.35s cubic-bezier(0.22,1,0.36,1);
+  text-align: left;
+  width: 100%;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+}
+/* Animated left border accent */
+.bioai-curriculum-card::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 3px;
+  background: var(--grad);
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform 0.4s cubic-bezier(0.22,1,0.36,1);
+  border-radius: 3px 0 0 3px;
+}
+.bioai-curriculum-card:hover::before { transform: scaleY(1); }
+.bioai-curriculum-card:hover {
+  border-color: rgba(201,151,76,0.4);
+  transform: translateY(-4px) translateX(4px);
+  box-shadow: 0 12px 32px rgba(27,67,50,0.1);
+}
+.bioai-curriculum-head {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+.bioai-week-badge {
+  display: inline-block;
+  padding: 4px 12px;
+  background: rgba(27,67,50,0.08);
+  color: var(--forest-mid);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  border-radius: 4px;
+  border: 1px solid rgba(27,67,50,0.2);
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: all 0.3s;
+}
+.bioai-curriculum-card:hover .bioai-week-badge {
+  background: rgba(201,151,76,0.12);
+  border-color: rgba(201,151,76,0.3);
+  color: #c9974c;
+}
+.bioai-curriculum-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.08rem;
+  font-weight: 600;
+  color: var(--forest);
+  margin: 0;
+}
+.bioai-curriculum-card p {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 400;
+  line-height: 1.75;
+  color: var(--text-mid);
 }
 
 /* =========================================
-   DELIVERY SECTION IMAGES
+   BONUS MODULE CARDS
    ========================================= */
+.bioai-bonus-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin-top: 3rem;
+  width: 100%;
+}
+.bioai-bonus-card {
+  border: 1.5px solid var(--border);
+  border-radius: 16px;
+  padding: 2rem 1.75rem;
+  background: var(--card-bg);
+  box-shadow: var(--card-shadow);
+  transition: all 0.35s cubic-bezier(0.22,1,0.36,1);
+  text-align: center;
+  width: 100%;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+}
+.bioai-bonus-card::before {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 2px;
+  background: var(--grad);
+  transform: scaleX(0);
+  transition: transform 0.4s cubic-bezier(0.22,1,0.36,1);
+}
+.bioai-bonus-card:hover::before { transform: scaleX(1); }
+.bioai-bonus-card:hover {
+  border-color: rgba(201,151,76,0.45);
+  transform: translateY(-6px);
+  box-shadow: 0 16px 40px rgba(27,67,50,0.12);
+}
+.bioai-bonus-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  background: rgba(27,67,50,0.07);
+  border: 1.5px solid rgba(27,67,50,0.14);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  margin: 0 auto 1.25rem;
+  transition: all 0.35s cubic-bezier(0.22,1,0.36,1);
+}
+.bioai-bonus-card:hover .bioai-bonus-icon {
+  background: rgba(201,151,76,0.15);
+  border-color: rgba(201,151,76,0.4);
+  transform: scale(1.15) rotate(5deg);
+}
+.bioai-bonus-card p {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 400;
+  line-height: 1.75;
+  color: var(--text-mid);
+}
+/* Shimmer class (used on bonus icon) */
+.shimmer {
+  background: linear-gradient(
+    105deg,
+    rgba(201,151,76,0.05) 0%,
+    rgba(201,151,76,0.15) 40%,
+    rgba(201,151,76,0.05) 80%
+  );
+  background-size: 200% auto;
+  animation: shimmerFlow 2.5s linear infinite;
+}
 
+/* =========================================
+   5 BONUSES CARDS
+   ========================================= */
+.bioai-bonuses-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 3rem;
+  width: 100%;
+}
+.bioai-bonuses-card {
+  border: 1.5px solid var(--border);
+  border-radius: 16px;
+  padding: 2rem 1.75rem;
+  background: var(--card-bg);
+  box-shadow: var(--card-shadow);
+  transition: all 0.35s cubic-bezier(0.22,1,0.36,1);
+  text-align: left;
+  width: 100%;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+}
+/* Animated glow */
+.bioai-bonuses-card:hover {
+  border-color: rgba(201,151,76,0.4);
+  transform: translateY(-5px);
+  box-shadow:
+    0 16px 40px rgba(27,67,50,0.12),
+    0 0 0 1px rgba(201,151,76,0.1),
+    inset 0 1px 0 rgba(255,255,255,0.05);
+}
+.bioai-bonuses-head {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+.bioai-bonuses-num {
+  display: inline-block;
+  padding: 4px 12px;
+  background: rgba(27,67,50,0.08);
+  border: 1px solid rgba(27,67,50,0.2);
+  color: var(--forest-mid);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  border-radius: 4px;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: all 0.3s;
+}
+.bioai-bonuses-card:hover .bioai-bonuses-num {
+  background: rgba(201,151,76,0.12);
+  border-color: rgba(201,151,76,0.35);
+  color: #c9974c;
+}
+.bioai-bonuses-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.08rem;
+  font-weight: 600;
+  color: var(--forest);
+  margin: 0;
+}
+.bioai-bonuses-card p {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 400;
+  line-height: 1.75;
+  color: var(--text-mid);
+}
+
+/* =========================================
+   DELIVERY CARDS
+   ========================================= */
+.bioai-delivery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 3rem;
+  width: 100%;
+}
+.bioai-delivery-card {
+  border: 1.5px solid var(--border);
+  border-radius: 16px;
+  padding: 0 0 1.75rem;
+  background: var(--card-bg);
+  box-shadow: var(--card-shadow);
+  transition: all 0.35s cubic-bezier(0.22,1,0.36,1);
+  text-align: left;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+  position: relative;
+}
+.bioai-delivery-card:hover {
+  border-color: rgba(201,151,76,0.5);
+  transform: translateY(-6px);
+  box-shadow: 0 20px 48px rgba(0,0,0,0.2);
+}
 .bioai-delivery-image {
   width: 100%;
   height: 160px;
-  border-radius: 12px 12px 0 0;
   overflow: hidden;
   margin-bottom: 1.5rem;
+  position: relative;
 }
-
+/* Gradient overlay on image */
+.bioai-delivery-image::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent 50%, rgba(27,67,50,0.5) 100%);
+  transition: opacity 0.35s;
+}
 .bioai-delivery-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.3s ease;
+  transition: transform 0.6s cubic-bezier(0.22,1,0.36,1);
 }
-
 .bioai-delivery-card:hover .bioai-delivery-image img {
-  transform: scale(1.02);
+  transform: scale(1.08);
+}
+.bioai-delivery-head {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+  padding: 0 1.75rem;
+}
+.bioai-delivery-icon {
+  font-size: 2rem;
+  line-height: 1;
+  flex-shrink: 0;
+  transition: transform 0.3s;
+}
+.bioai-delivery-card:hover .bioai-delivery-icon {
+  transform: scale(1.2) rotate(-8deg);
+}
+.bioai-delivery-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.08rem;
+  font-weight: 600;
+  color: var(--forest);
+  margin: 0;
+}
+.bioai-delivery-card p {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 400;
+  line-height: 1.75;
+  color: var(--text-mid);
+  padding: 0 1.75rem;
 }
 
 /* =========================================
-   CTA SECTION PULSE ORB
+   CTA SECTION
    ========================================= */
-
 .cta-section {
   position: relative;
   overflow: hidden;
 }
 
+/* Animated multi-ring pulse */
 .pulse-orb {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 300px;
-  height: 300px;
-  border-radius: 50%;
-  background: radial-gradient(circle, 
-              rgba(27,67,50,0.08) 0%, 
-              rgba(201,151,76,0.08) 40%, 
-              transparent 70%);
+  top: 50%; left: 50%;
+  width: 500px; height: 500px;
   transform: translate(-50%, -50%);
+  pointer-events: none;
   z-index: 0;
 }
-
-.bioai-hero h1 {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(2.8rem, 6vw, 5.5rem);
-  font-weight: 600; line-height: 1.1; letter-spacing: -0.02em;
-  color: var(--forest); margin-bottom: 1.5rem;
+.pulse-orb::before,
+.pulse-orb::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
 }
-.bioai-hero-sub {
-  font-family: 'Inter', sans-serif;
-  font-size: 1.08rem; font-weight: 400; line-height: 1.8;
-  color: var(--text-mid); max-width: 680px; margin: 0 auto 2.5rem;
+.pulse-orb::before {
+  background: radial-gradient(circle, rgba(27,67,50,0.08) 0%, rgba(201,151,76,0.06) 45%, transparent 70%);
+  animation: pulseOrb 4s ease-in-out infinite;
 }
-
-.bioai-hero-stats {
-  display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap;
-  padding: 1.75rem 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
-  margin-bottom: 2.5rem;
-}
-.bioai-stat {
-  font-family: 'Inter', sans-serif;
-  font-size: 0.82rem; font-weight: 600; color: var(--forest-mid); letter-spacing: 0.03em;
+.pulse-orb::after {
+  background: radial-gradient(circle, transparent 40%, rgba(201,151,76,0.04) 55%, transparent 70%);
+  animation: pulseOrb 4s ease-in-out infinite reverse;
+  animation-delay: 2s;
 }
 
-.bioai-hero-actions { display: flex; gap: 1.25rem; justify-content: center; flex-wrap: wrap; }
-.bioai-contact-info {
-  display: flex; gap: 0.75rem; align-items: center;
-  font-family: 'Inter', sans-serif; font-size: 0.82rem; color: var(--text-muted); font-weight: 500;
-}
-
-/* ── Section Base — all sections full width, centered content ── */
-.bioai-section-light,
-.bioai-section-warm,
-.bioai-section-dark {
-  width: 100%;
-  padding: 80px 0;
-  position: relative;
-  box-sizing: border-box;
-}
-
-/* Ensure sections break out of any container constraints */
-.bioai-page > section {
-  width: 100%;
-  display: block;
-}
-
-.bioai-section-light { 
-  background: var(--bg); 
-  color: var(--text); 
-}
-.bioai-section-warm  { 
-  background: var(--bg2); 
-  color: var(--text); 
-}
-.bioai-section-dark  { 
-  background: var(--bg-dark); 
-  color: var(--text-light); 
-}
-
-/* ── Container ── */
-.bioai-container { 
-  max-width: 1200px; 
-  margin: 0 auto; 
-  padding: 0 40px;
-  width: 100%;
-  box-sizing: border-box;
-  text-align: center;
-}
-.bioai-desc {
-  font-family: 'Inter', sans-serif;
-  font-size: 1rem; font-weight: 400; line-height: 1.85;
-  color: var(--text-mid); max-width: 860px; margin: 2rem auto 0;
-}
-
-/* ── Dark section text/color overrides ── */
-.bioai-section-dark .eyebrow { color: var(--gold-light); font-weight: 700; }
-.bioai-section-dark .h2 { color: var(--text-light); }
-.bioai-section-dark .lead { color: var(--text-on-dark); }
-.bioai-section-dark .bioai-desc { color: var(--text-on-dark); }
-.bioai-section-dark .gt {
-  background: var(--grad); -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent; background-clip: text;
-}
-
-.bioai-section-light .eyebrow,
-.bioai-section-warm  .eyebrow { color: var(--forest-mid); font-weight: 700; }
-.bioai-section-light .h2,
-.bioai-section-warm  .h2 { color: var(--forest); }
-.bioai-section-light .lead,
-.bioai-section-warm  .lead { color: var(--text-mid); }
-.bioai-section-light .gt,
-.bioai-section-warm  .gt {
-  background: var(--grad); -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent; background-clip: text;
-}
-.bioai-section-light .bioai-desc,
-.bioai-section-warm  .bioai-desc { color: var(--text-mid); }
-
-/* ── Dark section card styling ── */
+/* =========================================
+   DARK SECTION CARD OVERRIDES
+   ========================================= */
 .bioai-section-dark .bioai-glance-card,
 .bioai-section-dark .bioai-audience-card,
 .bioai-section-dark .bioai-curriculum-card,
 .bioai-section-dark .bioai-bonus-card,
 .bioai-section-dark .bioai-bonuses-card,
 .bioai-section-dark .bioai-delivery-card {
-  border: 1.5px solid rgba(255,255,255,0.18);
-  background: rgba(255,255,255,0.10);
+  border: 1.5px solid rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.06);
   box-shadow: 0 4px 24px rgba(0,0,0,0.1);
+  backdrop-filter: blur(6px);
 }
-
 .bioai-section-dark .bioai-glance-card:hover,
 .bioai-section-dark .bioai-audience-card:hover,
 .bioai-section-dark .bioai-curriculum-card:hover,
 .bioai-section-dark .bioai-bonus-card:hover,
 .bioai-section-dark .bioai-bonuses-card:hover,
 .bioai-section-dark .bioai-delivery-card:hover {
-  border-color: var(--gold);
-  box-shadow: 0 12px 48px rgba(0,0,0,0.15);
+  border-color: rgba(201,151,76,0.5);
+  box-shadow: 0 12px 48px rgba(0,0,0,0.2), 0 0 0 1px rgba(201,151,76,0.15);
 }
-
 .bioai-section-dark .bioai-glance-card h3,
 .bioai-section-dark .bioai-audience-card h3,
 .bioai-section-dark .bioai-curriculum-card h3,
 .bioai-section-dark .bioai-bonus-card h3,
 .bioai-section-dark .bioai-bonuses-card h3,
-.bioai-section-dark .bioai-delivery-card h3 {
-  color: #fff;
-}
-
+.bioai-section-dark .bioai-delivery-card h3 { color: #fff; }
 .bioai-section-dark .bioai-audience-num {
   background: var(--grad);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
-
 .bioai-section-dark .bioai-glance-card p,
 .bioai-section-dark .bioai-audience-card p,
 .bioai-section-dark .bioai-curriculum-card p,
 .bioai-section-dark .bioai-bonus-card p,
 .bioai-section-dark .bioai-bonuses-card p,
-.bioai-section-dark .bioai-delivery-card p {
-  color: rgba(255,255,255,0.75);
-}
-
-.bioai-section-dark .bioai-week-badge {
-  background: rgba(201,151,76,0.12);
-  color: var(--gold-light);
-  border: 1px solid rgba(201,151,76,0.25);
-}
-
+.bioai-section-dark .bioai-delivery-card p { color: rgba(255,255,255,0.75); }
+.bioai-section-dark .bioai-week-badge,
 .bioai-section-dark .bioai-bonuses-num {
   background: rgba(201,151,76,0.12);
   color: var(--gold-light);
   border: 1px solid rgba(201,151,76,0.25);
 }
-
 .bioai-section-dark .bioai-bonus-icon {
   background: rgba(201,151,76,0.12);
   border: 1.5px solid rgba(201,151,76,0.25);
 }
-
-/* ── Glance cards ── */
-.bioai-glance-grid {
-  display: grid; 
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem; 
-  margin-top: 3rem;
-  width: 100%;
-}
-.bioai-glance-card {
-  border: 1.5px solid var(--border); 
-  border-radius: 14px;
-  padding: 2rem 1.75rem; 
-  background: var(--card-bg);
-  box-shadow: var(--card-shadow);
-  transition: all 0.3s ease; 
-  text-align: left;
-  width: 100%;
-  box-sizing: border-box;
-}
-.bioai-glance-card:hover {
-  border-color: var(--forest-mid); transform: translateY(-5px);
-  box-shadow: var(--card-shadow-hover);
-}
-.bioai-glance-head { display: flex; align-items: center; gap: 0.9rem; margin-bottom: 0.85rem; }
-.bioai-glance-icon { font-size: 2rem; line-height: 1; flex-shrink: 0; }
-.bioai-glance-card h3 {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.15rem; font-weight: 600; color: var(--forest); margin: 0;
-}
-.bioai-glance-card p {
-  font-family: 'Inter', sans-serif;
-  font-size: 0.9rem; font-weight: 400; line-height: 1.8; color: var(--text-mid);
+/* Dark curriculum card left-border */
+.bioai-section-dark .bioai-curriculum-card::before {
+  background: linear-gradient(to bottom, var(--gold-light), rgba(201,151,76,0.3));
 }
 
-/* ── Audience cards ── */
-.bioai-audience-grid {
-  display: grid; 
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1.25rem; 
-  margin-top: 3rem;
-  width: 100%;
-}
-.bioai-audience-card {
-  border: 1.5px solid var(--border); 
-  border-radius: 14px;
-  padding: 2rem 1.75rem; 
-  background: var(--card-bg);
-  box-shadow: var(--card-shadow);
-  transition: all 0.3s ease; 
-  text-align: left;
-  width: 100%;
-  box-sizing: border-box;
-}
-.bioai-audience-card:hover { 
-  border-color: var(--forest-mid); transform: translateY(-4px); 
-  box-shadow: var(--card-shadow-hover); 
-}
-.bioai-audience-num {
-  font-family: 'Playfair Display', serif;
-  font-size: 3rem; font-weight: 700;
-  background: var(--grad-forest); -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent; background-clip: text;
-  line-height: 1; margin-bottom: 0.75rem;
-}
-.bioai-audience-card h3 {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.05rem; font-weight: 600; color: var(--forest); margin-bottom: 0.5rem;
-}
-.bioai-audience-card p {
-  font-family: 'Inter', sans-serif;
-  font-size: 0.9rem; font-weight: 400; line-height: 1.8; color: var(--text-mid);
-}
-
-/* ── Curriculum cards ── */
-.bioai-curriculum-grid {
-  display: grid; 
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1.25rem; 
-  margin-top: 3rem;
-  width: 100%;
-}
-.bioai-curriculum-card {
-  border: 1.5px solid var(--border); 
-  border-radius: 14px;
-  padding: 2rem 1.75rem; 
-  background: var(--card-bg);
-  box-shadow: var(--card-shadow);
-  transition: all 0.3s ease; 
-  text-align: left;
-  width: 100%;
-  box-sizing: border-box;
-}
-.bioai-curriculum-card:hover { 
-  border-color: var(--forest-mid); transform: translateY(-4px); 
-  box-shadow: var(--card-shadow-hover); 
-}
-.bioai-curriculum-head { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem; }
-.bioai-week-badge {
-  display: inline-block; padding: 4px 12px;
-  background: rgba(27,67,50,0.08);
-  color: var(--forest-mid); font-family: 'Inter', sans-serif;
-  font-size: 0.6rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
-  border-radius: 4px; border: 1px solid rgba(27,67,50,0.2);
-  white-space: nowrap; flex-shrink: 0;
-}
-.bioai-curriculum-card h3 {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.08rem; font-weight: 600; color: var(--forest); margin: 0;
-}
-.bioai-curriculum-card p {
-  font-family: 'Inter', sans-serif;
-  font-size: 0.9rem; font-weight: 400; line-height: 1.75; color: var(--text-mid);
-}
-
-/* ── Bonus cards ── */
-.bioai-bonus-grid {
-  display: grid; 
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1.5rem; 
-  margin-top: 3rem;
-  width: 100%;
-}
-.bioai-bonus-card {
-  border: 1.5px solid var(--border); 
-  border-radius: 14px;
-  padding: 2rem 1.75rem; 
-  background: var(--card-bg);
-  box-shadow: var(--card-shadow);
-  transition: all 0.3s ease; 
-  text-align: center;
-  width: 100%;
-  box-sizing: border-box;
-}
-.bioai-bonus-card:hover { 
-  border-color: var(--forest-mid); transform: translateY(-4px); 
-  box-shadow: var(--card-shadow-hover); 
-}
-.bioai-bonus-icon {
-  width: 52px; height: 52px; border-radius: 12px;
-  background: rgba(27,67,50,0.08); border: 1.5px solid rgba(27,67,50,0.15);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 1.5rem; margin: 0 auto 1.25rem;
-}
-.bioai-bonus-card p {
-  font-family: 'Inter', sans-serif;
-  font-size: 0.9rem; font-weight: 400; line-height: 1.75; color: var(--text-mid);
-}
-
-/* ── Bonuses cards ── */
-.bioai-bonuses-grid {
-  display: grid; 
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem; 
-  margin-top: 3rem;
-  width: 100%;
-}
-.bioai-bonuses-card {
-  border: 1.5px solid var(--border); 
-  border-radius: 14px;
-  padding: 2rem 1.75rem; 
-  background: var(--card-bg);
-  box-shadow: var(--card-shadow);
-  transition: all 0.3s ease; 
-  text-align: left;
-  width: 100%;
-  box-sizing: border-box;
-}
-.bioai-bonuses-card:hover { 
-  border-color: var(--forest-mid); transform: translateY(-4px); 
-  box-shadow: var(--card-shadow-hover); 
-}
-.bioai-bonuses-head { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem; }
-.bioai-bonuses-num {
-  display: inline-block; padding: 4px 12px;
-  background: rgba(27,67,50,0.08); border: 1px solid rgba(27,67,50,0.2);
-  color: var(--forest-mid); font-family: 'Inter', sans-serif;
-  font-size: 0.6rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
-  border-radius: 4px; white-space: nowrap; flex-shrink: 0;
-}
-.bioai-bonuses-card h3 {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.08rem; font-weight: 600; color: var(--forest); margin: 0;
-}
-.bioai-bonuses-card p {
-  font-family: 'Inter', sans-serif;
-  font-size: 0.9rem; font-weight: 400; line-height: 1.75; color: var(--text-mid);
-}
-
-/* ── Delivery cards ── */
-.bioai-delivery-grid {
-  display: grid; 
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem; 
-  margin-top: 3rem;
-  width: 100%;
-}
-.bioai-delivery-card {
-  border: 1.5px solid var(--border); 
-  border-radius: 14px;
-  padding: 2rem 1.75rem; 
-  background: var(--card-bg);
-  box-shadow: var(--card-shadow);
-  transition: all 0.3s ease; 
-  text-align: left;
-  width: 100%;
-  box-sizing: border-box;
-}
-.bioai-delivery-card:hover { 
-  border-color: var(--forest-mid); transform: translateY(-4px); 
-  box-shadow: var(--card-shadow-hover); 
-}
-.bioai-delivery-head { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem; }
-.bioai-delivery-icon { font-size: 2rem; line-height: 1; flex-shrink: 0; }
-.bioai-delivery-card h3 {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.08rem; font-weight: 600; color: var(--forest); margin: 0;
-}
-.bioai-delivery-card p {
-  font-family: 'Inter', sans-serif;
-  font-size: 0.9rem; font-weight: 400; line-height: 1.75; color: var(--text-mid);
-}
-
-/* ── Button styling ── */
+/* =========================================
+   BUTTONS
+   ========================================= */
 .bioai-section-light .btn-grad,
 .bioai-hero .btn-grad,
 .bioai-page .btn-grad {
-  background: #1B4332;
+  background: linear-gradient(135deg, #1b4332 0%, #2d6a4f 100%);
   color: #fff;
-  box-shadow: 0 2px 16px rgba(27,67,50,0.28);
+  box-shadow: 0 2px 20px rgba(27,67,50,0.35);
   font-family: 'Inter', sans-serif;
   font-size: 0.88rem;
   font-weight: 600;
   letter-spacing: 0.02em;
-  padding: 0.75rem 1.75rem;
-  border-radius: 8px;
+  padding: 0.8rem 2rem;
+  border-radius: 10px;
   text-decoration: none;
   display: inline-flex;
   align-items: center;
   gap: 8px;
   border: none;
   cursor: pointer;
-  transition: all 0.25s;
+  transition: all 0.3s cubic-bezier(0.22,1,0.36,1);
+  position: relative;
+  overflow: hidden;
 }
-
+.bioai-section-light .btn-grad::after,
+.bioai-hero .btn-grad::after,
+.bioai-page .btn-grad::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, transparent 100%);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.bioai-section-light .btn-grad:hover::after,
+.bioai-hero .btn-grad:hover::after,
+.bioai-page .btn-grad:hover::after { opacity: 1; }
 .bioai-section-light .btn-grad:hover,
 .bioai-hero .btn-grad:hover,
 .bioai-page .btn-grad:hover {
-  background: #153829;
+  background: linear-gradient(135deg, #153829 0%, #1b4332 100%);
   transform: translateY(-2px);
-  box-shadow: 0 6px 24px rgba(27,67,50,0.36);
+  box-shadow: 0 8px 30px rgba(27,67,50,0.4);
 }
 
 .bioai-section-dark .btn-grad {
-  background: #fff;
+  background: linear-gradient(135deg, #fff 0%, #f0faf4 100%);
   color: #1B4332;
-  box-shadow: 0 2px 16px rgba(255,255,255,0.2);
+  box-shadow: 0 2px 20px rgba(255,255,255,0.25);
   font-family: 'Inter', sans-serif;
   font-size: 0.88rem;
   font-weight: 600;
   letter-spacing: 0.02em;
-  padding: 0.75rem 1.75rem;
-  border-radius: 8px;
-  text-decoration: none;
+  padding: 0.8rem 2rem;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  border: none;
-  cursor: pointer;
-  transition: all 0.25s;
+  transition: all 0.3s cubic-bezier(0.22,1,0.36,1);
 }
-
 .bioai-section-dark .btn-grad:hover {
-  background: #F8F8F8;
+  background: #fff;
   transform: translateY(-2px);
-  box-shadow: 0 6px 24px rgba(255,255,255,0.3);
+  box-shadow: 0 8px 28px rgba(255,255,255,0.35);
 }
 
 .bioai-section-light .btn-light,
@@ -752,352 +1199,186 @@
   font-size: 0.88rem;
   font-weight: 600;
   letter-spacing: 0.02em;
-  padding: 0.75rem 1.75rem;
-  border-radius: 8px;
+  padding: 0.8rem 2rem;
+  border-radius: 10px;
   text-decoration: none;
   display: inline-flex;
   align-items: center;
   gap: 8px;
   cursor: pointer;
-  transition: all 0.25s;
+  transition: all 0.3s cubic-bezier(0.22,1,0.36,1);
 }
-
 .bioai-section-light .btn-light:hover,
 .bioai-hero .btn-light:hover,
 .bioai-page .btn-light:hover {
-  background: #F8F8F8;
+  background: #f0faf4;
   transform: translateY(-2px);
-  box-shadow: 0 4px 20px rgba(27,67,50,0.25);
+  box-shadow: 0 6px 22px rgba(27,67,50,0.25);
 }
 
-/* ── Tablet (max 1024px) ── */
+/* =========================================
+   FLOATING WAVE DIVIDER (new deco element)
+   ========================================= */
+.wave-divider {
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  position: relative;
+  z-index: 1;
+}
+.wave-divider svg {
+  display: block;
+  width: 100%;
+  height: 40px;
+}
+
+/* =========================================
+   SCROLL REVEAL — fi class
+   ========================================= */
+.fi {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s cubic-bezier(0.22,1,0.36,1), transform 0.7s cubic-bezier(0.22,1,0.36,1);
+}
+.fi.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+/* Hero elements visible by default */
+.hero .fi,
+.bioai-hero .fi {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+/* =========================================
+   RESPONSIVE
+   ========================================= */
 @media (max-width: 1024px) {
-  .bioai-glance-grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.25rem;
-  }
-  
-  .bioai-bonus-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  
-  .bioai-bonuses-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  
-  .about-layout {
-    grid-template-columns: 1fr;
-    gap: 3rem;
-    text-align: center;
-  }
-  
-  .about-content {
-    text-align: center;
-  }
-  
-  .timeline-line {
-    display: none;
-  }
-  
-  .bioai-container {
-    padding: 0 30px;
-  }
+  .bioai-glance-grid   { grid-template-columns: repeat(3,1fr); gap: 1.25rem; }
+  .bioai-bonus-grid    { grid-template-columns: repeat(2,1fr); }
+  .bioai-bonuses-grid  { grid-template-columns: repeat(2,1fr); }
+  .about-layout        { grid-template-columns: 1fr; gap: 3rem; text-align: center; }
+  .about-content       { text-align: center; }
+  .timeline-line       { display: none; }
+  .bioai-container     { padding: 0 30px; }
 }
 
-/* ── Mobile (max 768px) ── */
 @media (max-width: 768px) {
-  .bioai-hero { 
-    padding: 80px 0 60px;
-    min-height: 70vh;
-  }
-  
-  .bioai-hero-inner {
-    padding: 0 20px;
-  }
-  
-  .bioai-hero h1 {
-    font-size: clamp(1.8rem, 7vw, 2.5rem);
-    margin-bottom: 1rem;
-  }
-  
-  .bioai-hero-sub {
-    font-size: 0.95rem;
-    line-height: 1.6;
-    margin-bottom: 2rem;
-  }
-  
-  .bioai-hero-stats { 
-    flex-direction: column; 
-    gap: 0.75rem;
-    padding: 1.25rem 0;
-    margin-bottom: 2rem;
-  }
-  
-  .bioai-stat {
-    font-size: 0.75rem;
-  }
-
-  .bioai-section-light, 
-  .bioai-section-warm, 
-  .bioai-section-dark { 
-    padding: 50px 0;
-  }
-
-  .bioai-container {
-    padding: 0 20px;
-  }
-
-  /* All grids → single column on mobile */
+  .bioai-hero          { padding: 80px 0 60px; min-height: 70vh; }
+  .bioai-hero-inner    { padding: 0 20px; }
+  .bioai-hero h1       { font-size: clamp(1.8rem, 7vw, 2.5rem); margin-bottom: 1rem; }
+  .bioai-hero-sub      { font-size: 0.95rem; line-height: 1.6; margin-bottom: 2rem; }
+  .bioai-hero-stats    { flex-direction: column; gap: 0.75rem; padding: 1.25rem 0; margin-bottom: 2rem; }
+  .bioai-stat          { font-size: 0.75rem; }
+  .bioai-section-light,
+  .bioai-section-warm,
+  .bioai-section-dark  { padding: 56px 0; }
+  .bioai-container     { padding: 0 20px; }
   .bioai-glance-grid,
   .bioai-audience-grid,
   .bioai-curriculum-grid,
   .bioai-bonus-grid,
   .bioai-bonuses-grid,
-  .bioai-delivery-grid { 
-    grid-template-columns: 1fr;
-    gap: 1rem;
-    margin-top: 2rem;
-  }
-
+  .bioai-delivery-grid { grid-template-columns: 1fr; gap: 1rem; margin-top: 2rem; }
   .bioai-glance-card,
   .bioai-audience-card,
   .bioai-curriculum-card,
   .bioai-bonus-card,
   .bioai-bonuses-card,
-  .bioai-delivery-card {
-    padding: 1.25rem 1rem;
-    max-width: 100%;
-  }
-
-  .bioai-audience-num {
-    font-size: 2rem;
-    margin-bottom: 0.5rem;
-  }
-
-  .h2 {
-    font-size: clamp(1.5rem, 5vw, 2.2rem);
-    line-height: 1.2;
-  }
-  
-  .lead {
-    font-size: 0.9rem;
-    line-height: 1.6;
-  }
-  
-  .eyebrow {
-    font-size: 0.65rem;
-  }
-
-  .bioai-curriculum-head {
-    flex-wrap: wrap;
-    gap: 0.5rem;
-  }
-  
-  .bioai-week-badge {
-    font-size: 0.55rem;
-    padding: 3px 8px;
-  }
-  
-  .bioai-bonuses-head {
-    flex-wrap: wrap;
-    gap: 0.5rem;
-  }
-  
-  .bioai-bonuses-num {
-    font-size: 0.55rem;
-    padding: 3px 8px;
-  }
-
-  /* About section mobile adjustments */
-  .about-layout {
-    grid-template-columns: 1fr;
-    gap: 2.5rem;
-    text-align: center;
-  }
-  
-  .ngs-pipeline {
-    gap: 1rem;
-  }
-  
-  .step-node {
-    font-size: 0.8rem;
-    padding: 8px 12px;
-    min-width: 60px;
-  }
-  
-  .step-arrow {
-    width: 30px;
-    margin: 0 10px;
-  }
-  
-  /* Delivery images mobile */
-  .bioai-delivery-image {
-    height: 140px;
-    margin-bottom: 1rem;
-  }
-  
-  /* Bonus cards mobile */
-  .bioai-bonus-icon {
-    width: 40px;
-    height: 40px;
-    font-size: 1.2rem;
-    margin-bottom: 1rem;
-  }
-  
-  /* Hero actions mobile */
-  .bioai-hero-actions {
-    flex-direction: column;
-    gap: 1rem;
-    align-items: stretch;
-  }
-  
+  .bioai-delivery-card { padding: 1.25rem 1rem; max-width: 100%; }
+  .bioai-delivery-card { padding: 0 0 1rem; }
+  .bioai-delivery-head,
+  .bioai-delivery-card p { padding: 0 1rem; }
+  .bioai-audience-num  { font-size: 2rem; margin-bottom: 0.5rem; }
+  .h2                  { font-size: clamp(1.5rem, 5vw, 2.2rem); line-height: 1.2; }
+  .lead                { font-size: 0.9rem; line-height: 1.6; }
+  .eyebrow             { font-size: 0.65rem; }
+  .bioai-curriculum-head,
+  .bioai-bonuses-head  { flex-wrap: wrap; gap: 0.5rem; }
+  .bioai-week-badge,
+  .bioai-bonuses-num   { font-size: 0.55rem; padding: 3px 8px; }
+  .about-layout        { grid-template-columns: 1fr; gap: 2.5rem; text-align: center; }
+  .ngs-pipeline        { gap: 1rem; padding: 1.5rem; }
+  .step-node           { font-size: 0.8rem; padding: 8px 14px; min-width: 80px; }
+  .step-arrow          { margin-left: 8px; }
+  .bioai-delivery-image { height: 140px; margin-bottom: 1rem; }
+  .bioai-bonus-icon    { width: 44px; height: 44px; font-size: 1.25rem; margin-bottom: 1rem; }
+  .bioai-hero-actions  { flex-direction: column; gap: 1rem; align-items: stretch; }
   .bioai-hero-actions .btn-grad,
-  .bioai-hero-actions .btn-light {
-    width: 100%;
-    justify-content: center;
-    padding: 0.875rem 1.5rem;
-  }
-  
-  /* CTA section mobile */
-  .cta-section .bioai-container > div {
-    position: relative;
-    z-index: 2;
-  }
-  
-  .pulse-orb {
-    width: 250px;
-    height: 250px;
-  }
+  .bioai-hero-actions .btn-light { width: 100%; justify-content: center; padding: 0.9rem 1.5rem; }
+  .pulse-orb           { width: 280px; height: 280px; }
+  .bioai-ticker-wrap   { display: none; }
 }
 
-/* ── Small Mobile (max 480px) ── */
 @media (max-width: 480px) {
-  .bioai-hero {
-    padding: 60px 0 40px;
-  }
-  
-  .bioai-hero-inner {
-    padding: 0 16px;
-  }
-  
-  .bioai-hero h1 {
-    font-size: clamp(1.6rem, 8vw, 2rem);
-  }
-  
-  .bioai-hero-sub {
-    font-size: 0.85rem;
-  }
-  
+  .bioai-hero          { padding: 60px 0 40px; }
+  .bioai-hero-inner    { padding: 0 16px; }
+  .bioai-hero h1       { font-size: clamp(1.6rem, 8vw, 2rem); }
+  .bioai-hero-sub      { font-size: 0.85rem; }
   .bioai-section-light,
   .bioai-section-warm,
-  .bioai-section-dark {
-    padding: 40px 0;
-  }
-  
-  .bioai-container {
-    padding: 0 16px;
-  }
-  
+  .bioai-section-dark  { padding: 44px 0; }
+  .bioai-container     { padding: 0 16px; }
   .bioai-glance-card,
   .bioai-audience-card,
   .bioai-curriculum-card,
   .bioai-bonus-card,
-  .bioai-bonuses-card,
-  .bioai-delivery-card {
-    padding: 1rem 0.875rem;
-  }
-  
-  .h2 {
-    font-size: clamp(1.4rem, 6vw, 1.8rem);
-  }
-  
-  .lead {
-    font-size: 0.85rem;
-  }
-  
-  .bioai-desc {
-    font-size: 0.85rem;
-  }
-  
+  .bioai-bonuses-card  { padding: 1rem 0.875rem; }
+  .h2                  { font-size: clamp(1.4rem, 6vw, 1.8rem); }
+  .lead                { font-size: 0.85rem; }
+  .bioai-desc          { font-size: 0.85rem; }
   .bioai-glance-card h3,
   .bioai-audience-card h3,
   .bioai-curriculum-card h3,
   .bioai-bonuses-card h3,
-  .bioai-delivery-card h3 {
-    font-size: 0.95rem;
-  }
-  
+  .bioai-delivery-card h3 { font-size: 0.95rem; }
   .bioai-glance-card p,
   .bioai-audience-card p,
   .bioai-curriculum-card p,
   .bioai-bonus-card p,
   .bioai-bonuses-card p,
-  .bioai-delivery-card p {
-    font-size: 0.8rem;
-    line-height: 1.6;
+  .bioai-delivery-card p { font-size: 0.8rem; line-height: 1.6; }
+  .pipeline-step       { flex-direction: column; gap: 0.5rem; }
+  .step-arrow          {
+    width: 2px; height: 20px; margin: 0;
+    background: linear-gradient(to bottom, rgba(201,151,76,0.8), rgba(201,151,76,0.2));
+    animation: none;
   }
-  
-  /* NGS Pipeline mobile */
-  .pipeline-step {
-    flex-direction: column;
-    gap: 0.5rem;
+  .step-arrow::after   {
+    right: auto; left: 50%; top: auto; bottom: -6px;
+    transform: translateX(-50%) rotate(90deg);
   }
-  
-  .step-arrow {
-    width: 20px;
-    height: 20px;
-    background: var(--gold);
-    border-radius: 50%;
-    margin: 0;
-  }
-  
-  .step-arrow::after {
-    display: none;
-  }
-  
-  /* Contact info mobile */
-  .bioai-contact-info {
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-  
-  /* Delivery images smaller on mobile */
-  .bioai-delivery-image {
-    height: 120px;
-  }
-  
-  /* Bonus icons smaller */
-  .bioai-bonus-icon {
-    width: 36px;
-    height: 36px;
-    font-size: 1rem;
-  }
+  .bioai-delivery-image { height: 120px; }
+  .bioai-bonus-icon    { width: 38px; height: 38px; font-size: 1rem; }
 }
 
-/* ── Extra Small Mobile (max 360px) ── */
 @media (max-width: 360px) {
-  .bioai-hero-inner {
-    padding: 0 12px;
-  }
-  
-  .bioai-container {
-    padding: 0 12px;
-  }
-  
-  .bioai-hero h1 {
-    font-size: 1.5rem;
-  }
-  
-  .h2 {
-    font-size: 1.3rem;
-  }
-  
+  .bioai-hero-inner,
+  .bioai-container     { padding: 0 12px; }
+  .bioai-hero h1       { font-size: 1.5rem; }
+  .h2                  { font-size: 1.3rem; }
   .bioai-glance-card,
   .bioai-audience-card,
   .bioai-curriculum-card,
   .bioai-bonus-card,
   .bioai-bonuses-card,
-  .bioai-delivery-card {
-    padding: 0.875rem 0.75rem;
-  }
+  .bioai-delivery-card { padding: 0.875rem 0.75rem; }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .grad-text,
+  .step-arrow,
+  .shimmer,
+  .bioai-ticker-track,
+  .ngs-pipeline::before,
+  .step-node,
+  .pulse-orb::before,
+  .pulse-orb::after  { animation: none !important; }
+  .fi { transition: none !important; opacity: 1 !important; transform: none !important; }
+  .bioai-glance-card:hover,
+  .bioai-curriculum-card:hover,
+  .bioai-bonuses-card:hover,
+  .bioai-delivery-card:hover { transform: none; }
 }
